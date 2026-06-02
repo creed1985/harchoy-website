@@ -369,4 +369,23 @@
     } else {
         init();
     }
+
+
+// ==================== WebP Hero Background Swap ====================
+(function() {
+    var webp = new Image();
+    webp.onload = webp.onerror = function() {
+        var supported = webp.height === 2;
+        var heroEl = document.querySelector('.hero');
+        if (heroEl && supported) {
+            var current = heroEl.style.backgroundImage;
+            if (current) {
+                heroEl.style.backgroundImage = current.replace(/\.jpg(['"])/g, '.webp$1')
+                                                      .replace(/\.jpeg(['"])/g, '.webp$1');
+            }
+        }
+    };
+    webp.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA';
+})();
+
 })();
