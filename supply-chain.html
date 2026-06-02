@@ -20,7 +20,8 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap"></noscript>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
     <style>
@@ -150,7 +151,7 @@
             <div class="container">
                 <div class="chain-grid">
                     <div class="image">
-                        <img src="assets/farm/cashmere-farm-landscape.jpg" alt="HARCHOY Cashmere Goat Farm" loading="lazy">
+                        <picture><source srcset="assets/farm/cashmere-farm-landscape.webp" type="image/webp"><source srcset="assets/farm/cashmere-farm-landscape.jpg" type="image/jpeg"><img src="assets/farm/cashmere-farm-landscape.jpg" alt="HARCHOY Cashmere Goat Farm" loading="lazy"></picture>
                     </div>
                     <div class="text">
                         <div class="section-sub">Step 1 · Raw Material</div>
@@ -172,7 +173,7 @@
             <div class="container">
                 <div class="chain-grid reverse">
                     <div class="image">
-                        <img src="assets/farm/shaanxi-white-cashmere-goats.jpg" alt="Shaanxi Northern White Cashmere Goats at HARCHOY farm" width="1200" height="675" loading="lazy">
+                        <picture><source srcset="assets/farm/shaanxi-white-cashmere-goats.webp" type="image/webp"><source srcset="assets/farm/shaanxi-white-cashmere-goats.jpg" type="image/jpeg"><img src="assets/farm/shaanxi-white-cashmere-goats.jpg" alt="Shaanxi Northern White Cashmere Goats at HARCHOY farm" width="1200" height="675" loading="lazy"></picture>
                     </div>
                     <div class="text">
                         <div class="section-sub">The Breed</div>
@@ -233,14 +234,14 @@
                 <h2 style="text-align:center; margin-bottom:8px;">Life at Our Yulin Base</h2>
                 <p style="text-align:center; color:#718096; max-width:600px; margin:0 auto 32px;">Over 1,200 acres of grazing land in the heart of China's premium cashmere region. Every goat is individually tracked for fiber quality and health.</p>
                 <div class="farm-gallery">
-                    <img src="assets/farm/cashmere-goats-grazing.jpg" width="1200" height="800" alt="Cashmere goats grazing" loading="lazy">
-                    <img src="assets/farm/cashmere-farm-overview.jpg" width="1200" height="1800" alt="Farm overview Yulin" loading="lazy">
-                    <img src="assets/farm/cashmere-herd-closeup.jpg" width="1200" height="675" alt="Goat herd close-up" loading="lazy">
-                    <img src="assets/farm/cashmere-farm-landscape.jpg" width="1200" height="674" alt="Farm landscape Shaanxi" loading="lazy">
-                    <img src="assets/farm/white-cashmere-goats-detail.jpg" width="1200" height="800" alt="White cashmere goats" loading="lazy">
-                    <img src="assets/farm/cashmere-farm-facility.jpg" width="1200" height="799" alt="Goat farming facility" loading="lazy">
-                    <img src="assets/farm/cashmere-farm-building.jpg" width="1200" height="674" alt="Farm building" loading="lazy">
-                    <img src="assets/farm/cashmere-goat-portrait.jpg" width="1200" height="674" alt="Cashmere goat detail" loading="lazy">
+                    <picture><source srcset="assets/farm/cashmere-goats-grazing.webp" type="image/webp"><source srcset="assets/farm/cashmere-goats-grazing.jpg" type="image/jpeg"><img src="assets/farm/cashmere-goats-grazing.jpg" width="1200" height="800" alt="Cashmere goats grazing" loading="lazy"></picture>
+                    <picture><source srcset="assets/farm/cashmere-farm-overview.webp" type="image/webp"><source srcset="assets/farm/cashmere-farm-overview.jpg" type="image/jpeg"><img src="assets/farm/cashmere-farm-overview.jpg" width="1200" height="1800" alt="Farm overview Yulin" loading="lazy"></picture>
+                    <picture><source srcset="assets/farm/cashmere-herd-closeup.webp" type="image/webp"><source srcset="assets/farm/cashmere-herd-closeup.jpg" type="image/jpeg"><img src="assets/farm/cashmere-herd-closeup.jpg" width="1200" height="675" alt="Goat herd close-up" loading="lazy"></picture>
+                    <picture><source srcset="assets/farm/cashmere-farm-landscape.webp" type="image/webp"><source srcset="assets/farm/cashmere-farm-landscape.jpg" type="image/jpeg"><img src="assets/farm/cashmere-farm-landscape.jpg" width="1200" height="674" alt="Farm landscape Shaanxi" loading="lazy"></picture>
+                    <picture><source srcset="assets/farm/white-cashmere-goats-detail.webp" type="image/webp"><source srcset="assets/farm/white-cashmere-goats-detail.jpg" type="image/jpeg"><img src="assets/farm/white-cashmere-goats-detail.jpg" width="1200" height="800" alt="White cashmere goats" loading="lazy"></picture>
+                    <picture><source srcset="assets/farm/cashmere-farm-facility.webp" type="image/webp"><source srcset="assets/farm/cashmere-farm-facility.jpg" type="image/jpeg"><img src="assets/farm/cashmere-farm-facility.jpg" width="1200" height="799" alt="Goat farming facility" loading="lazy"></picture>
+                    <picture><source srcset="assets/farm/cashmere-farm-building.webp" type="image/webp"><source srcset="assets/farm/cashmere-farm-building.jpg" type="image/jpeg"><img src="assets/farm/cashmere-farm-building.jpg" width="1200" height="674" alt="Farm building" loading="lazy"></picture>
+                    <picture><source srcset="assets/farm/cashmere-goat-portrait.webp" type="image/webp"><source srcset="assets/farm/cashmere-goat-portrait.jpg" type="image/jpeg"><img src="assets/farm/cashmere-goat-portrait.jpg" width="1200" height="674" alt="Cashmere goat detail" loading="lazy"></picture>
                 </div>
             </div>
         </section>
