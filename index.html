@@ -39,6 +39,7 @@
     <link rel="alternate" hreflang="x-default" href="https://www.harchoy.com/">
     
     <!-- Preload hero image for LCP optimization -->
+    <link rel="preload" as="image" href="assets/hero/hero-suit-blue.webp" fetchpriority="high" type="image/webp">
     <link rel="preload" as="image" href="assets/hero/hero-suit-blue.jpg" fetchpriority="high">
     
     <!-- Structured Data: Organization (GEO-enhanced) -->
@@ -168,7 +169,8 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap"></noscript>
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/style.css">
@@ -456,18 +458,18 @@
                     <p class="section-header__desc">Every stitch, every seam, every detail reflects our commitment to excellence.</p>
                 </div>
                 <div class="gallery__grid">
-                    <div class="gallery__item"><img src="assets/gallery/1-125.jpg" alt="Suit craftsmanship detail" loading="lazy"></div>
-                    <div class="gallery__item"><img src="assets/gallery/1-180.jpg" alt="Bespoke suit stitching detail" loading="lazy"></div>
-                    <div class="gallery__item"><img src="assets/gallery/1-222.jpg" alt="Tailoring workmanship close-up" loading="lazy"></div>
-                    <div class="gallery__item"><img src="assets/gallery/1-27.jpg" alt="Premium suit fabric texture" loading="lazy"></div>
-                    <div class="gallery__item"><img src="assets/gallery/1-33.jpg" alt="Hand-stitched lapel detail" loading="lazy"></div>
-                    <div class="gallery__item"><img src="assets/gallery/1-338.jpg" alt="Custom suit fitting process" loading="lazy"></div>
-                    <div class="gallery__item"><img src="assets/gallery/1-339.jpg" alt="Bespoke jacket interior" loading="lazy"></div>
-                    <div class="gallery__item"><img src="assets/gallery/1-369.jpg" alt="Suit collar craftsmanship" loading="lazy"></div>
-                    <div class="gallery__item"><img src="assets/gallery/1-378.jpg" alt="Tailor measuring fabric" loading="lazy"></div>
-                    <div class="gallery__item"><img src="assets/gallery/1-395.jpg" alt="Suit button detail close-up" loading="lazy"></div>
-                    <div class="gallery__item"><img src="assets/gallery/1-406.jpg" alt="Premium suit shoulder construction" loading="lazy"></div>
-                    <div class="gallery__item"><img src="assets/gallery/1-409.jpg" alt="Bespoke suit pocket detail" loading="lazy"></div>
+                    <div class="gallery__item"><picture><source srcset="assets/gallery/1-125.webp" type="image/webp"><source srcset="assets/gallery/1-125.jpg" type="image/jpeg"><img src="assets/gallery/1-125.jpg" alt="Suit craftsmanship detail" loading="lazy"></picture></div>
+                    <div class="gallery__item"><picture><source srcset="assets/gallery/1-180.webp" type="image/webp"><source srcset="assets/gallery/1-180.jpg" type="image/jpeg"><img src="assets/gallery/1-180.jpg" alt="Bespoke suit stitching detail" loading="lazy"></picture></div>
+                    <div class="gallery__item"><picture><source srcset="assets/gallery/1-222.webp" type="image/webp"><source srcset="assets/gallery/1-222.jpg" type="image/jpeg"><img src="assets/gallery/1-222.jpg" alt="Tailoring workmanship close-up" loading="lazy"></picture></div>
+                    <div class="gallery__item"><picture><source srcset="assets/gallery/1-27.webp" type="image/webp"><source srcset="assets/gallery/1-27.jpg" type="image/jpeg"><img src="assets/gallery/1-27.jpg" alt="Premium suit fabric texture" loading="lazy"></picture></div>
+                    <div class="gallery__item"><picture><source srcset="assets/gallery/1-33.webp" type="image/webp"><source srcset="assets/gallery/1-33.jpg" type="image/jpeg"><img src="assets/gallery/1-33.jpg" alt="Hand-stitched lapel detail" loading="lazy"></picture></div>
+                    <div class="gallery__item"><picture><source srcset="assets/gallery/1-338.webp" type="image/webp"><source srcset="assets/gallery/1-338.jpg" type="image/jpeg"><img src="assets/gallery/1-338.jpg" alt="Custom suit fitting process" loading="lazy"></picture></div>
+                    <div class="gallery__item"><picture><source srcset="assets/gallery/1-339.webp" type="image/webp"><source srcset="assets/gallery/1-339.jpg" type="image/jpeg"><img src="assets/gallery/1-339.jpg" alt="Bespoke jacket interior" loading="lazy"></picture></div>
+                    <div class="gallery__item"><picture><source srcset="assets/gallery/1-369.webp" type="image/webp"><source srcset="assets/gallery/1-369.jpg" type="image/jpeg"><img src="assets/gallery/1-369.jpg" alt="Suit collar craftsmanship" loading="lazy"></picture></div>
+                    <div class="gallery__item"><picture><source srcset="assets/gallery/1-378.webp" type="image/webp"><source srcset="assets/gallery/1-378.jpg" type="image/jpeg"><img src="assets/gallery/1-378.jpg" alt="Tailor measuring fabric" loading="lazy"></picture></div>
+                    <div class="gallery__item"><picture><source srcset="assets/gallery/1-395.webp" type="image/webp"><source srcset="assets/gallery/1-395.jpg" type="image/jpeg"><img src="assets/gallery/1-395.jpg" alt="Suit button detail close-up" loading="lazy"></picture></div>
+                    <div class="gallery__item"><picture><source srcset="assets/gallery/1-406.webp" type="image/webp"><source srcset="assets/gallery/1-406.jpg" type="image/jpeg"><img src="assets/gallery/1-406.jpg" alt="Premium suit shoulder construction" loading="lazy"></picture></div>
+                    <div class="gallery__item"><picture><source srcset="assets/gallery/1-409.webp" type="image/webp"><source srcset="assets/gallery/1-409.jpg" type="image/jpeg"><img src="assets/gallery/1-409.jpg" alt="Bespoke suit pocket detail" loading="lazy"></picture></div>
                 </div>
             </div>
         </section>
@@ -672,7 +674,7 @@
                         </div>
                     </div>
                     <div class="about__image">
-                        <img src="assets/about/factory-capability.jpg" alt="HARCHOY Factory - Premium Suit Manufacturing" loading="lazy" style="width:100%; max-width:480px; border-radius:4px;" onerror="this.parentElement.innerHTML='<div class=\'about__image-placeholder\'><svg width=\'80\' height=\'80\' viewBox=\'0 0 64 64\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\'><rect x=\'4\' y=\'20\' width=\'56\' height=\'36\' rx=\'4\'/><rect x=\'20\' y=\'8\' width=\'24\' height=\'12\' rx=\'2\'/><path d=\'M8 32h48M20 44h24\'/></svg><span>Factory Image</span></div>'">
+                        <picture><source srcset="assets/about/factory-capability.webp" type="image/webp"><source srcset="assets/about/factory-capability.jpg" type="image/jpeg"><img src="assets/about/factory-capability.jpg" alt="HARCHOY Factory - Premium Suit Manufacturing" loading="lazy" style="width:100%; max-width:480px; border-radius:4px;" onerror="this.parentElement.innerHTML='<div class=\'about__image-placeholder\'></picture><svg width=\'80\' height=\'80\' viewBox=\'0 0 64 64\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\'><rect x=\'4\' y=\'20\' width=\'56\' height=\'36\' rx=\'4\'/><rect x=\'20\' y=\'8\' width=\'24\' height=\'12\' rx=\'2\'/><path d=\'M8 32h48M20 44h24\'/></svg><span>Factory Image</span></div>'">
                     </div>
                 </div>
             </div>
