@@ -1,0 +1,67 @@
+/* ============================================
+   HARCHOY - Responsive Enhancements
+   Additional responsive behavior beyond main CSS
+   ============================================ */
+
+/* Touch device optimizations */
+@media (hover: none) {
+    .solution-card:hover,
+    .product-card:hover,
+    .fabric-card:hover,
+    .feature-item:hover,
+    .testimonial-card:hover {
+        transform: none;
+    }
+
+    .btn:hover {
+        transform: none;
+    }
+}
+
+/* Print styles */
+@media print {
+    .top-bar,
+    .header,
+    .hero__scroll,
+    .contact__form,
+    .footer {
+        display: none;
+    }
+
+    body {
+        color: #000;
+    }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .hero__scroll {
+        animation: none;
+    }
+
+    * {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .hero__desc {
+        color: #fff;
+    }
+
+    .solution-card__desc {
+        color: #000;
+    }
+}
+
+/* Lazy loading */
+img[loading="lazy"] {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+img[loading="lazy"].loaded {
+    opacity: 1;
+}

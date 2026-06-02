@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 640" width="420" height="640">
+  <defs>
+    <style>
+      .outline { fill: none; stroke: #555; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+      .inner { fill: none; stroke: #888; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; }
+      .inlay { fill: rgba(150,150,150,0.05); stroke: #bbb; stroke-width: 0.5; stroke-dasharray: 6,4; }
+      .stitch { fill: none; stroke: #bbb; stroke-width: 0.3; stroke-dasharray: 2,2; }
+    </style>
+  </defs>
+
+  <!-- Outer jacket shape -->
+  <path class="outline" d="M60,40 L60,160 L40,200 L35,260 L40,350 L60,430 L80,560 L100,600 L130,620
+    L170,630 L210,630 L250,620 L280,600 L310,560 L330,510 L340,430
+    L360,350 L365,260 L360,200 L340,160 L340,40 Z" />
+
+  <!-- Inner lining area -->
+  <path class="inlay" d="M80,50 L80,155 L65,195 L60,255 L65,345 L85,425
+    L105,550 L125,590 L155,610 L190,618 L210,618 L245,610
+    L275,590 L295,550 L315,425 L335,345 L340,255 L335,195 L320,155 L320,50 Z" />
+
+  <!-- Left inner panel -->
+  <path class="inner" d="M80,50 L80,155 L65,195 L60,255 L65,345 L85,425
+    L105,550 L125,590 L155,610 L190,618 L200,618 L200,50 Z" />
+
+  <!-- Right inner panel -->
+  <path class="inner" d="M320,50 L320,155 L335,195 L340,255
+    L335,345 L315,425 L295,550 L275,590 L245,610
+    L210,618 L200,618 L200,50 Z" />
+
+  <!-- Inner pocket left -->
+  <rect class="inner" x="120" y="280" width="50" height="18" rx="3"/>
+  <!-- Inner pocket right -->
+  <rect class="inner" x="230" y="280" width="50" height="18" rx="3"/>
+
+  <!-- Inner pocket detail -->
+  <line class="stitch" x1="125" y1="288" x2="165" y2="288"/>
+  <line class="stitch" x1="235" y1="288" x2="275" y2="288"/>
+
+  <!-- Label area -->
+  <rect class="inner" x="175" y="400" width="50" height="60" rx="2"/>
+  <line class="stitch" x1="180" y1="415" x2="220" y2="415"/>
+  <line class="stitch" x1="180" y1="430" x2="220" y2="430"/>
+  <line class="stitch" x1="180" y1="445" x2="220" y2="445"/>
+
+  <!-- Lining fabric pattern hint -->
+  <path class="stitch" d="M85,180 L195,180 M85,200 L195,200
+    M205,180 L315,180 M205,200 L315,200" />
+
+  <!-- Shoulder pads indicated -->
+  <path class="inner" d="M140,140 L180,120 L220,120 L260,140" />
+
+  <!-- Collar from inside -->
+  <path class="outline" d="M80,40 L130,20 L200,15 L270,20 L320,40" />
+
+  <!-- Buttons inner side -->
+  <circle cx="145" cy="500" r="4" class="inner"/>
+  <circle cx="145" cy="530" r="4" class="inner"/>
+  <circle cx="255" cy="500" r="4" class="inner"/>
+  <circle cx="255" cy="530" r="4" class="inner"/>
+
+  <text x="210" y="620" text-anchor="middle" font-size="12" fill="#bbb" font-family="sans-serif">Inside View / 内里</text>
+</svg>

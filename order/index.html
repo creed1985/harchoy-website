@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HC-Bespoke | Online Custom Tailoring Order</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI','PingFang SC',sans-serif;background:#f5f5f5;color:#333}
+
+/* login */
+.login-page{min-height:100vh;display:flex;align-items:center;justify-content:center}
+.login-box{width:380px;background:#fff;padding:40px;border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,0.08)}
+.brand{font-size:22px;font-weight:700;text-align:center;letter-spacing:1px}
+.tagline{font-size:12px;color:#999;text-align:center;margin:8px 0 24px}
+.form-row{margin-bottom:16px}
+.form-row label{display:block;font-size:12px;color:#666;margin-bottom:4px;font-weight:600}
+.form-control{width:100%;padding:10px 12px;border:1px solid #ddd;border-radius:4px;font-size:14px;transition:border-color .2s}
+.form-control:focus{outline:none;border-color:#1a1a1a}
+.login-error{color:#ef4444;font-size:12px;margin-bottom:8px;min-height:18px}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border:none;border-radius:4px;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s}
+.btn-full{width:100%;justify-content:center}
+.btn-dark{background:#1a1a1a;color:#fff}
+.btn-dark:hover{background:#333}
+.hero-text{text-align:center;margin-top:20px;font-size:12px;color:#bbb}
+.info-row{display:flex;justify-content:space-between;align-items:center;margin-top:20px;padding-top:16px;border-top:1px solid #f0f0f2;font-size:11px;color:#aaa}
+
+/* header */
+.header{background:#1a1a1a;color:#fff;padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}
+.header .logo{font-size:16px;font-weight:700}
+.header .nav{display:flex;gap:16px;align-items:center}
+.header .nav a,.header .nav span{color:#bbb;text-decoration:none;font-size:12px;cursor:pointer;padding:4px 0;border-bottom:2px solid transparent}
+.header .nav a.active,.header .nav span.active{color:#fff;border-bottom-color:#fff}
+.header .nav a:hover{color:#fff}
+.wallet-badge{background:#10b981;color:#fff;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:600}
+
+/* tabs */
+.tabs{display:flex;gap:0;justify-content:center;background:#fff;border-bottom:1px solid #e0e0e0;position:sticky;top:0;z-index:100}
+.tab{padding:12px 24px;font-size:13px;color:#999;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap}
+.tab.active{color:#1a1a1a;font-weight:600;border-bottom-color:#1a1a1a}
+.tab.done{color:#4caf50}
+
+/* pages */
+.page{display:none;max-width:1200px;margin:0 auto;padding:24px}
+.page.active{display:block}
+.card{background:#fff;border-radius:8px;padding:24px;box-shadow:0 1px 4px rgba(0,0,0,0.05);margin-bottom:20px}
+.card h3{font-size:16px;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid #f0f0f2}
+
+/* customize */
+.layout{display:flex;gap:20px;align-items:flex-start}
+.preview-panel{flex:0 0 480px;background:#fff;border-radius:6px;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,0.05);position:sticky;top:68px}
+.preview-main{width:100%;height:560px;background:#fafafa;border-radius:4px;border:1px solid #eee;position:relative;overflow:hidden}
+.preview-main .base-layer{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:1}
+.preview-main .base-layer img,.preview-main .base-layer object{width:90%;height:90%;object-fit:contain}
+.overlay-slot{position:absolute;z-index:2;display:flex;align-items:center;justify-content:center;pointer-events:none}
+.overlay-slot img{max-width:100%;max-height:100%;object-fit:contain;opacity:0.7;transform:scale(2.5)}
+.angle-toggle{display:flex;border-radius:4px;overflow:hidden;border:1px solid #ddd;margin-bottom:8px}
+.angle-btn{padding:6px 14px;font-size:11px;cursor:pointer;background:#fff;color:#666;border:none;transition:all .2s}
+.angle-btn:not(:last-child){border-right:1px solid #ddd}
+.angle-btn.active{background:#1a1a1a;color:#fff}
+
+.options-panel{flex:1;background:#fff;border-radius:6px;padding:20px;box-shadow:0 1px 3px rgba(0,0,0,0.05)}
+.opt-group{margin-bottom:14px;border-bottom:1px solid #f0f0f0;padding-bottom:12px}
+.opt-group:last-child{border-bottom:none}
+.opt-group-title{font-size:13px;font-weight:600;color:#555;margin-bottom:8px;padding-left:8px;border-left:3px solid #1a1a1a;display:flex;justify-content:space-between}
+.opt-count{font-size:11px;color:#999;font-weight:400}
+.opt-items{display:flex;flex-wrap:wrap;gap:8px}
+.opt-item{display:flex;flex-direction:column;align-items:center;cursor:pointer;padding:6px;border:2px solid transparent;border-radius:5px;transition:all .2s;min-width:72px}
+.opt-item:hover{background:#f8f8f8}
+.opt-item.selected{border-color:#1a1a1a;background:#f5f5f5}
+.opt-item .opt-img{width:64px;height:64px;display:flex;align-items:center;justify-content:center;background:#fafafa;border-radius:4px;margin-bottom:4px;overflow:hidden}
+.opt-item .opt-img img{max-width:100%;max-height:100%;object-fit:contain}
+.opt-item .opt-name{font-size:10px;color:#666;text-align:center;line-height:1.3;max-width:80px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* fabric grid */
+.fabric-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
+.fabric-card{cursor:pointer;padding:12px;border:2px solid #eee;border-radius:6px;transition:all .2s}
+.fabric-card:hover{border-color:#999}
+.fabric-card.selected{border-color:#1a1a1a;background:#fafafa}
+.fabric-swatch{width:100%;height:80px;border-radius:4px;margin-bottom:8px}
+.fabric-name{font-size:13px;font-weight:600;margin-bottom:2px}
+.fabric-meta{font-size:11px;color:#888}
+
+/* form grids */
+.form-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.form-group label{display:block;font-size:12px;color:#666;margin-bottom:4px;font-weight:600}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:8px 10px;border:1px solid #ddd;border-radius:4px;font-size:13px}
+.form-group textarea{min-height:60px;resize:vertical}
+
+/* summary */
+.summary-bar{background:#fff;padding:8px 20px;border-bottom:1px solid #e8e8e8;font-size:12px;color:#666;display:flex;gap:16px}
+.summary-bar strong{color:#333}
+table{width:100%;border-collapse:collapse}
+th{background:#f8f9fa;padding:8px 10px;text-align:left;font-size:11px;color:#666;font-weight:600;border-bottom:1px solid #eee}
+td{padding:8px 10px;border-bottom:1px solid #f0f0f2;font-size:12px}
+.tag{display:inline-block;padding:2px 8px;border-radius:3px;font-size:10px;font-weight:500}
+.tag-wool{background:#ede9fe;color:#7c3aed}.tag-blend{background:#fce7f3;color:#db2777}.tag-cotton{background:#dbeafe;color:#2563eb}.tag-linen{background:#fef3c7;color:#d97706}
+
+.hidden{display:none !important}
+.empty-state{text-align:center;padding:32px;color:#aaa;font-size:13px}
+.loading{text-align:center;padding:40px;color:#999;font-size:13px}
+.toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:#10b981;color:#fff;padding:10px 24px;border-radius:6px;z-index:9999;display:none;font-size:13px}
+.toast.show{display:block;animation:fadeIn .3s}
+@keyframes fadeIn{from{opacity:0;transform:translateX(-50%) translateY(10px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+</style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7RZ3KXZPDC"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-7RZ3KXZPDC');
+    </script>
+</head>
+<body>
+
+<!-- LOGIN PAGE -->
+<div id="page-login" class="page active">
+  <div class="login-page">
+    <div class="login-box">
+      <div class="brand">HC-BESPOKE</div>
+      <div class="tagline">Custom Tailoring Order Platform / 定制服装下单系统</div>
+      <h2 style="font-size:15px;margin-bottom:20px">Sign In / 登录</h2>
+      <div class="form-row"><label>Username / 用户名</label><input id="loginUser" class="form-control" placeholder="Enter username"></div>
+      <div class="form-row"><label>Password / 密码</label><input id="loginPass" class="form-control" type="password" placeholder="Enter password"></div>
+      <div class="login-error" id="loginErr"></div>
+      <button class="btn btn-dark btn-full" onclick="doLogin()">Sign In / 登录</button>
+      <div class="hero-text">Demo: use test / test123<br>Powered by HC-Bespoke</div>
+    </div>
+  </div>
+</div>
+
+<!-- APP SHELL (hidden until login) -->
+<div id="app-shell" class="hidden">
+  <div class="header">
+    <div class="logo">HC-Bespoke</div>
+    <div class="nav">
+      <span class="active" data-page="customize" onclick="showTab('customize')">1. Style / 款式</span>
+      <span data-page="fabric" onclick="showTab('fabric')">2. Fabric / 面料</span>
+      <span data-page="measurements" onclick="showTab('measurements')">3. Measurements / 量体</span>
+      <span data-page="shipping" onclick="showTab('shipping')">4. Shipping / 收货</span>
+      <span data-page="confirm" onclick="showTab('confirm')">5. Confirm / 确认</span>
+    </div>
+    <div><span class="wallet-badge" id="walletBadge">$5000</span></div>
+  </div>
+
+  <!-- PAGE 1: Style Customization -->
+  <div id="page-customize" class="page active">
+    <div class="summary-bar">
+      Category: <strong id="selCat">Suit</strong> | Style: <strong id="selStyle">-</strong> | Selections: <strong id="selCount">0</strong>
+    </div>
+    <div class="layout">
+      <div class="preview-panel">
+        <div class="angle-toggle" id="angleToggle">
+          <button class="angle-btn active" data-angle="face">Front / 正面</button>
+          <button class="angle-btn" data-angle="inside">Inside / 内里</button>
+          <button class="angle-btn" data-angle="back">Back / 背面</button>
+        </div>
+        <div class="preview-main" id="previewMain">
+          <div class="base-layer" id="previewBase"></div>
+          <div id="previewOverlays"></div>
+          <div id="previewPlaceholder" style="position:absolute;z-index:0;text-align:center;color:#bbb;font-size:13px;width:100%;top:50%;transform:translateY(-50%)">Click options to build design</div>
+        </div>
+      </div>
+      <div class="options-panel">
+        <h3>Select Options</h3>
+        <div class="cat-bar" id="catBar" style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px"></div>
+        <div id="optCategories"><div class="loading">Choose a category above</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE 2: Fabric -->
+  <div id="page-fabric" class="page">
+    <div class="card"><h3>Fabric Selection / 面料选择</h3><div class="fabric-grid" id="fabricGrid"><div class="empty-state">Select fabric below</div></div></div>
+  </div>
+
+  <!-- PAGE 3: Measurements -->
+  <div id="page-measurements" class="page">
+    <div class="card"><h3>Measurements (cm) / 量体数据</h3>
+      <div class="form-grid" id="measGrid"></div>
+    </div>
+    <div style="display:flex;gap:12px;justify-content:center;margin-top:20px">
+      <button class="btn btn-dark" onclick="saveMeasurements()">Save & Continue / 保存并继续</button>
+    </div>
+  </div>
+
+  <!-- PAGE 4: Shipping -->
+  <div id="page-shipping" class="page">
+    <div class="card"><h3>Shipping Info / 收货信息</h3>
+      <div class="form-grid" id="shipGrid"></div>
+    </div>
+    <div style="display:flex;gap:12px;justify-content:center;margin-top:20px">
+      <button class="btn btn-dark" onclick="saveShipping()">Save & Continue / 保存并继续</button>
+    </div>
+  </div>
+
+  <!-- PAGE 5: Confirm -->
+  <div id="page-confirm" class="page">
+    <div class="card"><h3>Order Summary / 订单汇总</h3><div id="confirmContent"></div></div>
+    <div style="display:flex;gap:12px;justify-content:center;margin-top:20px">
+      <button class="btn btn-dark" onclick="submitOrderBtn()">Submit Order / 提交订单</button>
+    </div>
+  </div>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ═══════════════════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════════════════
+const S = {
+  cat:'suits', style:'', angle:'face',
+  selections:{},  // angle -> { folderKey: imgName }
+  fabric:null, ship:null, meas:{},
+  wallet:5000
+};
+
+const CATS = {suits:{label:'Suit',types:['经典商务系','时尚商务系','英式礼服系']},pants:{label:'Pants',types:['经典商务系','时尚商务系','休闲系']},shirts:{label:'Shirt',types:['default']}};
+const ANGLES = ['face','inside','back'];
+const CAT_MAP = {suits:'suit',pants:'pant',shirts:'shirt'};
+
+// ═══════════════════════════════════════════════════════
+// AUTH
+// ═══════════════════════════════════════════════════════
+function doLogin(){
+  const u=document.getElementById('loginUser').value.trim();
+  const p=document.getElementById('loginPass').value.trim();
+  if(!u||!p){document.getElementById('loginErr').textContent='Enter username and password';return}
+  if(u==='test'&&p==='test123' || u==='admin'&&p==='admin123'){
+    localStorage.setItem('oem_user',JSON.stringify({name:u,role:u==='admin'?'admin':'client'}));
+    document.getElementById('page-login').classList.remove('active');
+    document.getElementById('app-shell').classList.remove('hidden');
+    initApp();
+  }else{
+    document.getElementById('loginErr').textContent='Invalid credentials / 账号或密码错误';
+  }
+}
+
+// ═══════════════════════════════════════════════════════
+// TAB NAVIGATION
+// ═══════════════════════════════════════════════════════
+function showTab(name){
+  document.querySelectorAll('.header .nav span').forEach(s=>s.classList.toggle('active',s.dataset.page===name));
+  document.querySelectorAll('#app-shell .page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+name).classList.add('active');
+  if(name==='fabric') loadFabrics();
+  if(name==='measurements') buildMeasurementsForm();
+  if(name==='shipping') buildShippingForm();
+  if(name==='confirm') buildConfirm();
+}
+
+// ═══════════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════════
+async function initApp(){
+  await loadMaterials();
+  buildCatBar();
+  buildAngleToggle();
+  showTab('customize');
+}
+
+// ═══════════════════════════════════════════════════════
+// MATERIALS LOADING
+// ═══════════════════════════════════════════════════════
+let MAT = {catalog:{}};
+
+async function loadMaterials(){
+  try {
+    const r = await fetch('https://raw.githubusercontent.com/placeholder/main');
+    // Fallback: use bundled data or show demo state
+    throw new Error('use fallback');
+  } catch(e){
+    // Local demo - materials from local OEM folder
+    MAT.catalog = {suits:{},pants:{},shirts:{}};
+    loadDemoMaterials();
+  }
+}
+
+function loadDemoMaterials(){
+  // Build category tabs
+  buildCatBar();
+  selectCat('suits');
+}
+
+function buildCatBar(){
+  const bar = document.getElementById('catBar');
+  bar.innerHTML = Object.entries(CATS).map(([k,v]) => 
+    `<button class="opt-item" style="border:1px solid #ddd;padding:8px 16px;border-radius:4px;background:#fff;cursor:pointer;font-size:13px;${k===S.cat?'background:#1a1a1a;color:#fff;border-color:#1a1a1a':''}" onclick="selectCat('${k}')">${v.label}</button>`
+  ).join('');
+}
+
+function selectCat(cat){
+  S.cat = cat; S.style = CATS[cat].types[0]; S.selections = {};
+  buildCatBar();
+  renderStyleTabs();
+  renderOptions();
+  updateAngleToggleVisibility();
+  loadBaseFigure();
+  renderPreview();
+  updateSummary();
+}
+
+function renderStyleTabs(){
+  const container = document.getElementById('styleTabs');
+  const types = CATS[S.cat].types;
+  if(!container) return;
+  container.innerHTML = types.map(t =>
+    `<button class="opt-item" style="border:1px solid #ddd;padding:6px 14px;border-radius:4px;background:#fff;cursor:pointer;font-size:12px;margin:0 4px;${t===S.style?'background:#1a1a1a;color:#fff;border-color:#1a1a1a':''}" onclick="selectStyle('${t}')">${t}</button>`
+  ).join('');
+}
+
+function selectStyle(st){ S.style = st; renderStyleTabs(); renderOptions(); renderPreview(); updateSummary(); }
+
+function updateAngleToggleVisibility(){
+  const toggle = document.getElementById('angleToggle');
+  if(S.cat==='shirts'){ toggle.classList.add('hidden'); S.angle='face'; }
+  else toggle.classList.remove('hidden');
+}
+
+// ═══════════════════════════════════════════════════════
+// MATERIALS RENDERING
+// ═══════════════════════════════════════════════════════
+const DEMO_OPTIONS = {
+  suits:{'经典商务系':[
+    {name:'领子造型 / Collar',images:['coat~bt101.png','coat~bt201.png','coat~bt301.png']},
+    {name:'驳头款式 / Lapel',images:['coat~bt101.png','coat~bt201.png','coat~bt301.png']},
+    {name:'下口袋 / Pocket',images:['coat~dd102.png','coat~dd103.png','coat~dd107.png']},
+    {name:'纽扣搭配 / Button',images:['coat~nk100.png','coat~nk102.png','coat~nk103.png']},
+    {name:'袖口款式 / Cuff',images:['coat~xk107.png','coat~xk108.png']},
+  ],'时尚商务系':[
+    {name:'领子造型 / Collar',images:['coat~bt101.png','coat~bt301.png']},
+    {name:'下口袋 / Pocket',images:['coat~dd102.png','coat~dd108.png']},
+    {name:'纽扣搭配 / Button',images:['coat~nk100.png','coat~nk104.png']},
+  ],'英式礼服系':[
+    {name:'领子造型 / Collar',images:['coat~bt101.png']},
+    {name:'驳头款式 / Lapel',images:['coat~bt101.png','coat~bt301.png']},
+    {name:'纽扣搭配 / Button',images:['coat~nk100.png']},
+  ]},
+  pants:{'经典商务系':[
+    {name:'裤前褶 / Pleats',images:['pant~pl01.png','pant~pl02.png']},
+    {name:'前袋款式 / Pocket',images:['pant~fp01.png','pant~fp02.png']},
+    {name:'后袋款式 / Back Pocket',images:['pant~bp01.png','pant~bp02.png']},
+  ],'时尚商务系':[
+    {name:'裤前褶 / Pleats',images:['pant~pl01.png','pant~pl02.png']},
+    {name:'脚口款式 / Cuff',images:['pant~cu01.png']},
+  ],'休闲系':[
+    {name:'裤前褶 / Pleats',images:['pant~pl01.png']},
+  ]},
+  shirts:{'default':[
+    {name:'领子造型 / Collar',images:['shirt~12~1210.png','shirt~12~1208.png','shirt~12~1207.png']},
+    {name:'袖口造型 / Cuff',images:['shirt~13~1313.png','shirt~13~1312.png']},
+    {name:'门襟款式 / Placket',images:['shirt~11~1110.png','shirt~11~1108.png']},
+  ]}
+};
+
+function renderOptions(){
+  const container = document.getElementById('optCategories');
+  const opts = DEMO_OPTIONS[S.cat]?.[S.style] || [];
+  if(!opts.length){ container.innerHTML='<div class="empty-state">No options for this style</div>'; return; }
+  
+  let html='';
+  for(const opt of opts){
+    const folderKey = S.style+'/'+opt.name;
+    const angOpts = S.selections[S.angle] || {};
+    const selImg = angOpts[folderKey];
+    
+    html += `<div class="opt-group"><div class="opt-group-title">${opt.name}<span class="opt-count">${opt.images.length} options</span></div><div class="opt-items">`;
+    for(const img of opt.images){
+      const isSel = selImg === img;
+      html += `<div class="opt-item ${isSel?'selected':''}" data-folder="${folderKey}" data-img="${img}" onclick="selectOption('${folderKey}','${img}',this)">
+        <div class="opt-img"><div style="width:64px;height:64px;display:flex;align-items:center;justify-content:center;font-size:10px;color:#aaa;background:#fafafa;border:1px solid #eee;border-radius:3px">${img.split('~').pop().split('.').shift()}</div></div>
+        <div class="opt-name">${img.split('~').pop().split('.').shift()}</div></div>`;
+    }
+    html += `</div></div>`;
+  }
+  container.innerHTML = html;
+}
+
+function selectOption(folder, img, el){
+  if(!S.selections[S.angle]) S.selections[S.angle] = {};
+  S.selections[S.angle][folder] = img;
+  document.querySelectorAll(`.opt-item[data-folder="${folder}"]`).forEach(e=>e.classList.remove('selected'));
+  el.classList.add('selected');
+  updateSummary();
+  renderPreview();
+}
+
+function updateSummary(){
+  document.getElementById('selCat').textContent = CATS[S.cat]?.label || S.cat;
+  document.getElementById('selStyle').textContent = S.style;
+  let c=0; Object.values(S.selections).forEach(a=>c+=Object.keys(a).length);
+  document.getElementById('selCount').textContent = c;
+}
+
+// ═══════════════════════════════════════════════════════
+// PREVIEW
+// ═══════════════════════════════════════════════════════
+function buildAngleToggle(){
+  const toggle = document.getElementById('angleToggle');
+  toggle.querySelectorAll('.angle-btn').forEach(b=>b.addEventListener('click',()=>{
+    S.angle = b.dataset.angle;
+    toggle.querySelectorAll('.angle-btn').forEach(x=>x.classList.toggle('active',x.dataset.angle===S.angle));
+    loadBaseFigure();
+    renderPreview();
+    renderOptions();
+  }));
+}
+
+function loadBaseFigure(){
+  const cat = CAT_MAP[S.cat] || 'suit';
+  const url = `img/base/${cat}-${S.angle}.svg`;
+  document.getElementById('previewBase').innerHTML = `<object data="${url}" type="image/svg+xml" style="width:90%;height:90%;pointer-events:none"></object>`;
+}
+
+function renderPreview(){
+  const overlay = document.getElementById('previewOverlays');
+  const placeholder = document.getElementById('previewPlaceholder');
+  const angOpts = S.selections[S.angle] || {};
+  const entries = Object.entries(angOpts);
+  
+  loadBaseFigure();
+  if(!entries.length){ overlay.innerHTML=''; placeholder.style.display='block'; return; }
+  placeholder.style.display='none';
+  
+  // Simple centered overlays (no position map in static deploy)
+  let html='';
+  const cols = Math.ceil(entries.length/2);
+  entries.forEach(([folder,img],i)=>{
+    const col = i % 2; const row = Math.floor(i/2);
+    const top = 10 + row*40; const left = col===0 ? 10 : 55;
+    html += `<div class="overlay-slot" style="left:${left}%;top:${top}%;width:35%;height:35%">
+      <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:10px;color:#aaa;border:1px dashed #ddd;border-radius:4px">${img.split('~').pop().split('.').shift()}</div></div>`;
+  });
+  overlay.innerHTML = html;
+}
+
+// ═══════════════════════════════════════════════════════
+// FABRIC
+// ═══════════════════════════════════════════════════════
+const FABRICS = [
+  {id:'FB-001',brand:'VBC',name:'Super 110s Wool',nameCn:'精纺羊毛',composition:'100% Wool',weight:'260g/m',color:'#1B2A4A',category:'Wool',price:68},
+  {id:'FB-002',brand:'VBC',name:'Super 130s Wool',nameCn:'130支羊毛',composition:'100% Wool',weight:'240g/m',color:'#36454F',category:'Wool',price:85},
+  {id:'FB-003',brand:'REDA',name:'Travel Wool',nameCn:'旅行羊毛',composition:'98% Wool 2% Elastane',weight:'270g/m',color:'#4A6FA5',category:'Wool',price:72},
+  {id:'FB-004',brand:'SCABAL',name:'Royal Collection',nameCn:'皇家系列',composition:'100% Super 150s',weight:'220g/m',color:'#1A1A1A',category:'Wool',price:120},
+  {id:'FB-005',brand:'ZEGNA',name:'Trofeo Wool',nameCn:'顶级羊毛',composition:'100% Wool',weight:'250g/m',color:'#3E2723',category:'Wool',price:95},
+  {id:'FB-006',brand:'LORO PIANA',name:'Cashmere Blend',nameCn:'羊绒混纺',composition:'70% Wool 30% Cashmere',weight:'280g/m',color:'#C19A6B',category:'Blend',price:155},
+  {id:'FB-007',brand:'THOMAS MASON',name:'Egyptian Cotton',nameCn:'埃及棉府绸',composition:'100% Cotton',weight:'120g/m',color:'#FFFFFF',category:'Cotton',price:28},
+  {id:'FB-008',brand:'CANCLINI',name:'Linen Blend',nameCn:'亚麻混纺',composition:'55% Linen 45% Cotton',weight:'180g/m',color:'#F5F5DC',category:'Linen',price:32},
+];
+
+function loadFabrics(){
+  const grid = document.getElementById('fabricGrid');
+  grid.innerHTML = FABRICS.map(f=>`
+    <div class="fabric-card ${S.fabric?.id===f.id?'selected':''}" onclick="selectFabric('${f.id}')">
+      <div class="fabric-swatch" style="background:${f.color}"></div>
+      <div class="fabric-name">${f.name}</div>
+      <div class="fabric-meta">${f.nameCn} · ${f.composition} · ${f.season||'All Season'} · $${f.price}</div>
+      <div class="fabric-meta">${f.brand} ${f.id} · ${f.weight}</div>
+    </div>`).join('');
+}
+
+function selectFabric(id){
+  S.fabric = FABRICS.find(f=>f.id===id);
+  loadFabrics();
+  toast('Selected: '+S.fabric.name);
+}
+
+// ═══════════════════════════════════════════════════════
+// MEASUREMENTS
+// ═══════════════════════════════════════════════════════
+const MEAS_FIELDS = [
+  {key:'frontLength',label:'Front Length / 前衣长'},{key:'backLength',label:'Back Length / 后衣长'},
+  {key:'shoulder',label:'Shoulder / 肩宽'},{key:'chest',label:'Chest / 胸围'},
+  {key:'stomach',label:'Stomach / 腹围'},{key:'sleeveLength',label:'Sleeve Length / 袖长'},
+  {key:'biceps',label:'Biceps / 上臂围'},{key:'backWidth',label:'Back Width / 背宽'},
+  {key:'wrist',label:'Wrist / 腕围'},
+  {key:'pantLength',label:'Pant Length / 裤长'},{key:'waist',label:'Waist / 腰围'},
+  {key:'hips',label:'Hips / 臀围'},{key:'thigh',label:'Thigh / 大腿围'},
+  {key:'knee',label:'Knee / 膝围'},{key:'calf',label:'Calf / 小腿围'},
+  {key:'cuff',label:'Cuff / 脚口'},{key:'crotch',label:'Crotch / 横裆'},
+  {key:'neck',label:'Neck / 领围'}
+];
+
+function buildMeasurementsForm(){
+  const grid = document.getElementById('measGrid');
+  grid.innerHTML = MEAS_FIELDS.map(f=>{
+    const val = S.meas[f.key]||'';
+    return `<div class="form-group"><label>${f.label}</label><input type="number" step="0.1" id="m_${f.key}" value="${val}" placeholder="cm"></div>`;
+  }).join('');
+}
+
+function saveMeasurements(){
+  MEAS_FIELDS.forEach(f=>{
+    const el=document.getElementById('m_'+f.key);
+    if(el&&el.value) S.meas[f.key]=parseFloat(el.value);
+  });
+  localStorage.setItem('oem_meas',JSON.stringify(S.meas));
+  toast('Measurements saved');
+  showTab('shipping');
+}
+
+// ═══════════════════════════════════════════════════════
+// SHIPPING
+// ═══════════════════════════════════════════════════════
+function buildShippingForm(){
+  const grid = document.getElementById('shipGrid');
+  const s = S.ship || {};
+  const fields = [
+    {key:'name',label:'Name / 姓名',type:'text'},{key:'email',label:'Email / 邮箱',type:'email'},
+    {key:'phone',label:'Phone / 电话',type:'text'},{key:'company',label:'Company / 公司',type:'text'},
+    {key:'country',label:'Country / 国家',type:'text'},{key:'city',label:'City / 城市',type:'text'},
+    {key:'address',label:'Address / 详细地址',type:'text'},{key:'postal',label:'Postal Code / 邮编',type:'text'},
+  ];
+  grid.innerHTML = fields.map(f=>{
+    const v = s[f.key]||'';
+    return `<div class="form-group"><label>${f.label}</label><input type="${f.type}" id="s_${f.key}" value="${v}"></div>`;
+  }).join('');
+}
+
+function saveShipping(){
+  const s={};
+  ['name','email','phone','company','country','city','address','postal'].forEach(k=>{
+    const el=document.getElementById('s_'+k); if(el&&el.value) s[k]=el.value;
+  });
+  if(!s.name||!s.address){alert('Please fill name and address / 请填写姓名和地址');return}
+  S.ship = s;
+  localStorage.setItem('oem_ship',JSON.stringify(s));
+  toast('Shipping saved');
+  showTab('confirm');
+}
+
+// ═══════════════════════════════════════════════════════
+// CONFIRM
+// ═══════════════════════════════════════════════════════
+function buildConfirm(){
+  const c = document.getElementById('confirmContent');
+  let totalOpts = 0; Object.values(S.selections).forEach(a=>totalOpts+=Object.keys(a).length);
+  const fabricCost = S.fabric?.price||0;
+  const total = fabricCost + 30;
+  
+  c.innerHTML = `
+    <table>
+      <tr><th>Item</th><th>Details</th></tr>
+      <tr><td>Category / 品类</td><td>${CATS[S.cat].label} - ${S.style}</td></tr>
+      <tr><td>Options / 选项</td><td>${totalOpts} selected (Face:${Object.keys(S.selections.face||{}).length}, Inside:${Object.keys(S.selections.inside||{}).length}, Back:${Object.keys(S.selections.back||{}).length})</td></tr>
+      <tr><td>Fabric / 面料</td><td>${S.fabric?S.fabric.brand+' '+S.fabric.name+' ($'+S.fabric.price+')':'Not selected'}</td></tr>
+      <tr><td>Measurements / 量体</td><td>${Object.keys(S.meas).length} fields filled</td></tr>
+      <tr><td>Shipping / 收货</td><td>${S.ship?S.ship.name+', '+S.ship.city+', '+S.ship.country:'Not filled'}</td></tr>
+      <tr><td><strong>Estimated Cost / 预估费用</strong></td><td><strong>$${total}</strong></td></tr>
+      <tr><td>Wallet Balance / 余额</td><td>$${S.wallet}</td></tr>
+    </table>`;
+}
+
+function submitOrderBtn(){
+  const totalOpts = Object.values(S.selections).reduce((s,a)=>s+Object.keys(a).length,0);
+  if(!totalOpts){alert('Select style options first');return}
+  if(!S.fabric){alert('Select fabric first');return}
+  if(!S.ship?.name){alert('Fill shipping info');return}
+  
+  const fabricCost = S.fabric.price||0;
+  const total = fabricCost + 30;
+  
+  if(S.wallet < total){alert('Insufficient balance! $'+total+' needed, $'+S.wallet+' available.');return}
+  if(!confirm(`Confirm order?\nFabric: $${fabricCost}\nShipping: $30\nTotal: $${total}\n\n确认提交订单？`)) return;
+  
+  S.wallet -= total;
+  document.getElementById('walletBadge').textContent = '$'+S.wallet;
+  
+  const orderId = 'HC-'+Date.now().toString(36).toUpperCase();
+  localStorage.setItem('oem_order',JSON.stringify({id:orderId,total,date:new Date().toISOString()}));
+  localStorage.removeItem('oem_fabric');localStorage.removeItem('oem_ship');localStorage.removeItem('oem_meas');
+  
+  alert('Order submitted!\n订单提交成功！\n\nOrder ID: '+orderId+'\nAmount: $'+total+'\n\nThank you for your order!');
+  S.selections={};S.fabric=null;S.ship=null;S.meas={};
+  showTab('customize');
+}
+
+// ═══════════════════════════════════════════════════════
+// UTILS
+// ═══════════════════════════════════════════════════════
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)}
+
+// Auto-login if session exists
+(function(){
+  const saved = localStorage.getItem('oem_user');
+  if(saved){
+    document.getElementById('page-login').classList.remove('active');
+    document.getElementById('app-shell').classList.remove('hidden');
+    initApp();
+  }
+})();
+</script>
+</body>
+</html>

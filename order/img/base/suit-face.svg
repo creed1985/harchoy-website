@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 640" width="420" height="640">
+  <defs>
+    <style>
+      .outline { fill: none; stroke: #555; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+      .detail { fill: none; stroke: #999; stroke-width: 0.8; stroke-linecap: round; }
+      .zone { fill: rgba(200,200,200,0.08); stroke: #ddd; stroke-width: 0.5; stroke-dasharray: 4,3; }
+    </style>
+  </defs>
+
+  <!-- Body silhouette -->
+  <path class="outline" d="M160,70 L160,180 L130,200 L130,250 L125,280 L130,320 L150,380 L160,410
+    L160,560 L170,590 L190,610 L210,590 L240,560 L240,410 L250,380 L270,320
+    L275,280 L270,250 L270,200 L240,180 L240,70 L200,50 Z" />
+
+  <!-- Shoulder line -->
+  <path class="outline" d="M160,70 L200,50 L240,70" />
+
+  <!-- Lapels -->
+  <path class="outline" d="M170,80 L170,160 L190,200 L200,200" />
+  <path class="outline" d="M230,80 L230,160 L210,200 L200,200" />
+
+  <!-- Collar -->
+  <path class="outline" d="M155,65 L170,80 L200,72 L230,80 L245,65" />
+
+  <!-- Pockets -->
+  <path class="detail" d="M145,310 L175,310 L175,330 L145,330 Z" />
+  <path class="detail" d="M225,310 L255,310 L255,330 L225,330 Z" />
+  <!-- Chest pocket -->
+  <path class="detail" d="M140,230 L160,230 L160,240 L140,240 Z" />
+
+  <!-- Buttons -->
+  <circle cx="200" cy="240" r="5" class="outline"/>
+  <circle cx="200" cy="290" r="5" class="outline"/>
+
+  <!-- Center line -->
+  <line x1="200" y1="200" x2="200" y2="590" stroke="#ccc" stroke-width="0.5" stroke-dasharray="3,5"/>
+
+  <!-- Sleeves -->
+  <path class="outline" d="M160,70 L110,120 L100,160 L100,280 L105,290 L115,290 L120,280 L120,160 L140,120 L155,90" />
+  <path class="outline" d="M240,70 L290,120 L300,160 L300,280 L295,290 L285,290 L280,280 L280,160 L260,120 L245,90" />
+  <!-- Sleeve cuffs -->
+  <rect class="detail" x="100" y="285" width="15" height="8" rx="1"/>
+  <rect class="detail" x="285" y="285" width="15" height="8" rx="1"/>
+
+  <!-- Labels -->
+  <text x="200" y="620" text-anchor="middle" font-size="12" fill="#bbb" font-family="sans-serif">Front View / 正面</text>
+
+  <!-- Zone markers (invisible, for position reference) -->
+  <rect class="zone" x="155" y="60" width="90" height="25" />  <!-- collar zone -->
+  <rect class="zone" x="135" y="225" width="130" height="70" /> <!-- pocket zone -->
+  <rect class="zone" x="95" y="280" width="210" height="15" />  <!-- cuff zone -->
+</svg>

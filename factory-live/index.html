@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" type="image/svg+xml" href="../assets/logo.svg">
+    <title>Factory Live &amp; Supply Chain | Real-time Workshop &amp; Cashmere Farm | HARCHOY</title>
+    <meta name="description" content="Witness the craft of premium bespoke suit manufacturing in real-time. From our self-owned cashmere goat farm in Yulin to our expert tailoring workshop. Transparency at every step.">
+    <link rel="canonical" href="https://www.harchoy.com/factory-live/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7RZ3KXZPDC"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-7RZ3KXZPDC');
+    </script>
+    <style>
+        .page-hero { background: linear-gradient(135deg, #0a1118, #162231); color: #fff; padding: 100px 0 80px; text-align: center; position: relative; overflow: hidden; }
+        .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 50% 50%, rgba(200,164,92,0.1), transparent 70%); }
+        .page-hero h1 { color: #fff; font-size: clamp(2rem,4vw,3rem); position: relative; }
+        .page-hero p { color: #d1d5db; max-width: 700px; margin: 16px auto 0; position: relative; font-size: 1.05rem; line-height: 1.8; }
+        .page-hero .live-badge { display: inline-flex; align-items: center; gap: 8px; background: #dc2626; color: #fff; padding: 6px 16px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; animation: pulse 2s infinite; }
+        .page-hero .live-badge.offline { background: #6b7280; animation: none; }
+        @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.7; } }
+        .page-hero .live-dot { width: 10px; height: 10px; border-radius: 50%; background: #fff; display: inline-block; }
+
+        .stream-section { padding: 60px 0; max-width: 1100px; margin: 0 auto; }
+        .stream-container { background: #000; border-radius: 8px; overflow: hidden; aspect-ratio: 16/9; position: relative; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+        .stream-container iframe, .stream-container video { width: 100%; height: 100%; border: none; }
+        .stream-container .overlay-msg { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff; text-align: center; background: rgba(0,0,0,0.7); }
+        .stream-container .overlay-msg h3 { font-family: 'Cormorant Garamond',serif; font-size: 2rem; color: var(--color-gold); margin-bottom: 8px; }
+        .stream-container .overlay-msg p { color: #d1d5db; max-width: 500px; }
+
+        .stream-info { display: flex; justify-content: space-between; align-items: center; margin-top: 20px; flex-wrap: wrap; gap: 12px; }
+        .stream-status { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; }
+        .stream-status .dot { width: 8px; height: 8px; border-radius: 50%; }
+        .stream-status .dot.live { background: #22c55e; animation: pulse 2s infinite; }
+        .stream-status .dot.offline { background: #9ca3af; }
+        .stream-status .label { font-weight: 600; color: #374151; }
+        .time-zone { font-size: 0.8rem; color: #6b7280; }
+
+        .tabs { display: flex; gap: 4px; background: #f3f4f6; border-radius: 8px; padding: 4px; margin-bottom: 24px; }
+        .tab { flex: 1; padding: 14px 20px; text-align: center; border: none; background: transparent; border-radius: 6px; font-family: 'Inter',sans-serif; font-size: 0.9rem; font-weight: 500; cursor: pointer; color: #6b7280; transition: all 0.3s; }
+        .tab.active { background: #fff; color: #111827; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .tab:hover:not(.active) { color: #111827; }
+
+        .trust-section { padding: 80px 0; background: #f9fafb; }
+        .trust-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1000px; margin: 0 auto; }
+        .trust-card { text-align: center; padding: 32px; }
+        .trust-card .icon { width: 56px; height: 56px; margin: 0 auto 16px; border-radius: 50%; background: rgba(200,164,92,0.1); display: flex; align-items: center; justify-content: center; color: var(--color-gold); }
+        .trust-card h4 { font-size: 1.1rem; margin-bottom: 8px; }
+        .trust-card p { color: #6b7280; font-size: 0.9rem; line-height: 1.6; }
+
+        @media (max-width: 768px) {
+            .page-hero { padding: 60px 0 40px; }
+            .trust-grid { grid-template-columns: 1fr; }
+            .stream-info { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="/" class="nav__logo">
+                    <span class="nav__logo-text">HARCHOY</span>
+                    <span class="nav__logo-sub">PREMIUM CRAFT &amp; TAILORING</span>
+                </a>
+                <ul class="nav__menu" id="navMenu">
+                    <li><a href="/" class="nav__link">Home</a></li>
+                    <li class="nav__dropdown">
+                        <a href="/solutions.html" class="nav__link">Solutions <span class="nav__arrow">&#9662;</span></a>
+                        <ul class="nav__submenu">
+                            <li><a href="/solutions/bespoke-partner.html">For Tailoring Studios</a></li>
+                            <li><a href="/solutions/enterprise.html">For Corporations</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/products.html" class="nav__link">Products</a></li>
+                    <li><a href="/product-videos.html" class="nav__link">Videos</a></li>
+                    <li><a href="/fabrics.html" class="nav__link">Fabrics</a></li>
+                    <li><a href="/process.html" class="nav__link">Process</a></li>
+                    <li><a href="/factory-live/" class="nav__link active">Factory Live</a></li>
+                    <li><a href="/supply-chain.html" class="nav__link">Supply Chain</a></li>
+                    <li><a href="/blog/" class="nav__link">Blog</a></li>
+                    <li><a href="/order/" class="nav__link nav__link--order">Order / 下单</a></li>
+                    <li><a href="/about.html" class="nav__link">About</a></li>
+                    <li><a href="/contact.html" class="nav__link nav__link--cta">Inquire Now</a></li>
+                </ul>
+                <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <div class="live-badge" id="liveBadge">
+                    <span class="live-dot"></span> LIVE
+                </div>
+                <h1>See Our Workshop in Real Time</h1>
+                <p>Total transparency. Watch our artisans at work during production hours, or tour our goat ranch — the source of our premium wool. Because trust is built on what you can see.</p>
+            </div>
+        </section>
+
+        <section class="container stream-section">
+            <div class="tabs">
+                <button class="tab active" data-tab="workshop">Production Workshop</button>
+                <button class="tab" data-tab="goats">Goat Ranch</button>
+            </div>
+
+            <!-- Workshop Tab -->
+            <div class="tab-content" id="tab-workshop">
+                <div class="stream-container" id="workshopContainer">
+                    <div class="overlay-msg" id="workshopOverlay">
+                        <h3>Workshop Live Stream</h3>
+                        <p>Our production floor is live during Beijing working hours (Mon-Sat, 8:00-18:00 GMT+8). Outside these hours, enjoy our brand film below.</p>
+                        <p style="margin-top:12px;font-size:0.85rem;color:#9ca3af;" id="workshopTimeMsg"></p>
+                    </div>
+                    <video id="workshopVideo" controls playsinline style="display:none;"></video>
+                    <iframe id="workshopIframe" src="" style="display:none;" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                </div>
+                <div class="stream-info">
+                    <div class="stream-status" id="workshopStatus">
+                        <span class="dot live"></span>
+                        <span class="label">Production Workshop</span>
+                        <span class="time-zone">· GMT+8</span>
+                    </div>
+                    <a href="/#contact" class="btn btn--primary">Visit Our Factory →</a>
+                </div>
+            </div>
+
+            <!-- Goat Ranch Tab -->
+            <div class="tab-content" id="tab-goats" style="display:none;">
+                <div class="stream-container" id="goatsContainer">
+                    <div class="overlay-msg" id="goatsOverlay">
+                        <h3>Our Goat Ranch</h3>
+                        <p>Premium wool starts here. Tour the source of our finest materials.</p>
+                    </div>
+                    <video id="goatsVideo" controls playsinline style="display:none;"></video>
+                    <iframe id="goatsIframe" src="" style="display:none;" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                </div>
+                <div class="stream-info">
+                    <div class="stream-status">
+                        <span class="dot" style="background:#22c55e;"></span>
+                        <span class="label">Goat Ranch</span>
+                        <span class="time-zone">· On Demand</span>
+                    </div>
+                    <span style="font-size:0.85rem;color:#6b7280;">Quality wool begins with healthy goats</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="trust-section">
+            <div class="container">
+                <div class="trust-grid">
+                    <div class="trust-card">
+                        <div class="icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                        </div>
+                        <h4>Radical Transparency</h4>
+                        <p>No factory should be a black box. We open our doors so you can verify quality with your own eyes — anytime.</p>
+                    </div>
+                    <div class="trust-card">
+                        <div class="icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <h4>Quality You Can Watch</h4>
+                        <p>See our artisans stitch, press, and inspect every garment. Quality is not a claim — it is something you witness.</p>
+                    </div>
+                    <div class="trust-card">
+                        <div class="icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        </div>
+                        <h4>Source-to-Stitch</h4>
+                        <p>From the goat ranch to the finished suit — trace every step of your garment's journey. No middlemen, no mystery.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <span class="footer__logo">HARCHOY</span>
+                    <p>Premium craft &amp; tailoring since 2010. Your trusted partner for bespoke suit manufacturing and corporate attire solutions.</p>
+                    <p class="footer__badge">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        Alibaba International 5-Star Supplier
+                    </p>
+                    <div class="footer__social" style="margin-top: 15px; display: flex; gap: 15px;">
+                        <a href="https://www.instagram.com/harchoy_custom/" class="social-link" title="Follow on Instagram" style="color: #a0aec0; transition: color 0.3s;" onmouseover="this.style.color='#c8a45c'" onmouseout="this.style.color='#a0aec0'"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                        <a href="https://www.linkedin.com/company/harchoy" class="social-link" title="Follow on LinkedIn" style="color: #a0aec0; transition: color 0.3s;" onmouseover="this.style.color='#c8a45c'" onmouseout="this.style.color='#a0aec0'"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+                        <a href="https://www.youtube.com/@harchoy" class="social-link" title="Follow on YouTube" style="color: #a0aec0; transition: color 0.3s;" onmouseover="this.style.color='#c8a45c'" onmouseout="this.style.color='#a0aec0'"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a>
+                    </div>
+                </div>
+                <div class="footer__col">
+                    <h4>Solutions</h4>
+                    <ul>
+                        <li><a href="/solutions/bespoke-partner.html">Bespoke Partner Program</a></li>
+                        <li><a href="/solutions/enterprise.html">Enterprise Attire Solutions</a></li>
+                        <li><a href="/products.html">Product Catalog</a></li>
+                        <li><a href="/fabrics.html">Fabric Library</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About HARCHOY</a></li>
+                        <li><a href="/process.html">Our Process</a></li>
+                        <li><a href="/blog/">Blog &amp; Insights</a></li>
+                        <li><a href="/contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:ivytang@harchoy.com">ivytang@harchoy.com</a></li>
+                        <li>Global DDP Shipping</li>
+                        <li>Response: Within 24h</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2026 HARCHOY. All rights reserved. | OEM &bull; ODM &bull; OBM Bespoke Apparel Manufacturing</p>
+                <p class="footer__seo">Bespoke Suit Manufacturer &bull; Corporate Uniform Supplier DDP &bull; Custom Men's Suit for Business &bull; White-Label Bespoke Program &bull; custom suit manufacturing partner</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+    // Time-based video switching logic
+    (function() {
+        const now = new Date();
+        const hours = now.getHours();
+        const day = now.getDay(); // 0=Sun, 1=Mon...6=Sat
+        const isWorkingHours = (day >= 1 && day <= 6) && (hours >= 8 && hours < 18);
+
+        const badge = document.getElementById('liveBadge');
+        const overlay = document.getElementById('workshopOverlay');
+        const statusDot = document.querySelector('#workshopStatus .dot');
+        const statusLabel = document.querySelector('#workshopStatus .label');
+        const timeMsg = document.getElementById('workshopTimeMsg');
+        const videoEl = document.getElementById('workshopVideo');
+        const iframeEl = document.getElementById('workshopIframe');
+
+        // SETUP: Configure your actual video/stream URLs here
+        // WORKSHOP: Replace with your YouTube Live ID or RTMP stream
+        const WORKSHOP_LIVE_URL = '';     // e.g., 'https://www.youtube.com/embed/LIVE_STREAM_ID?autoplay=1&mute=1'
+        const PROMO_VIDEO_URL = '';        // e.g., 'https://www.youtube.com/embed/PROMO_VIDEO_ID?autoplay=1&mute=1'
+        
+        // GOAT RANCH: Replace with your ranch video URL
+        const GOAT_RANCH_URL = '';         // e.g., 'https://www.youtube.com/embed/GOAT_VIDEO_ID'
+
+        function showVideo(url, container, overlayEl, iframe, video) {
+            if (url) {
+                overlayEl.style.display = 'none';
+                if (url.includes('youtube.com') || url.includes('youtu.be')) {
+                    iframe.src = url;
+                    iframe.style.display = 'block';
+                    video.style.display = 'none';
+                } else {
+                    video.src = url;
+                    video.style.display = 'block';
+                    iframe.style.display = 'none';
+                }
+            }
+        }
+
+        if (isWorkingHours) {
+            // Working hours - show live workshop
+            badge.classList.remove('offline');
+            document.getElementById('workshopStatus').querySelector('.dot').classList.add('live');
+            document.getElementById('workshopStatus').querySelector('.dot').classList.remove('offline');
+            timeMsg.textContent = '🟢 Workshop is live now — our artisans are at work (GMT+8, ' + hours + ':' + String(now.getMinutes()).padStart(2,'0') + ')';
+            document.querySelector('#workshopStatus .label').textContent = 'Workshop Live Now';
+            
+            if (WORKSHOP_LIVE_URL) {
+                showVideo(WORKSHOP_LIVE_URL, document.getElementById('workshopContainer'), overlay, iframeEl, videoEl);
+            }
+        } else {
+            // Off-hours - show promotional video
+            badge.classList.add('offline');
+            document.getElementById('workshopStatus').querySelector('.dot').classList.add('offline');
+            document.getElementById('workshopStatus').querySelector('.dot').classList.remove('live');
+            document.querySelector('#workshopStatus .label').textContent = 'Workshop Offline · Brand Film';
+            
+            const nextWorkDay = day >= 6 ? 'Monday' : 'tomorrow';
+            timeMsg.textContent = '⏸ Workshop is currently closed. Enjoy our brand film. Next live session: ' + nextWorkDay + ' at 8:00 GMT+8';
+            
+            if (PROMO_VIDEO_URL) {
+                showVideo(PROMO_VIDEO_URL, document.getElementById('workshopContainer'), overlay, iframeEl, videoEl);
+            }
+        }
+
+        // Goat ranch video
+        if (GOAT_RANCH_URL) {
+            const goatsOverlay = document.getElementById('goatsOverlay');
+            const goatsIframe = document.getElementById('goatsIframe');
+            const goatsVideo = document.getElementById('goatsVideo');
+            // Don't autoplay goat video — let user click if they want
+            goatsOverlay.style.cursor = 'pointer';
+            goatsOverlay.addEventListener('click', function() {
+                if (GOAT_RANCH_URL.includes('youtube.com') || GOAT_RANCH_URL.includes('youtu.be')) {
+                    goatsIframe.src = GOAT_RANCH_URL;
+                    goatsIframe.style.display = 'block';
+                } else {
+                    goatsVideo.src = GOAT_RANCH_URL;
+                    goatsVideo.style.display = 'block';
+                    goatsVideo.play();
+                }
+                goatsOverlay.style.display = 'none';
+            });
+        }
+
+        // Tab switching
+        document.querySelectorAll('.tab').forEach(function(tab) {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('active'); });
+                this.classList.add('active');
+                var target = this.getAttribute('data-tab');
+                document.getElementById('tab-workshop').style.display = target === 'workshop' ? 'block' : 'none';
+                document.getElementById('tab-goats').style.display = target === 'goats' ? 'block' : 'none';
+            });
+        });
+    })();
+    </script>
+</body>
+</html>

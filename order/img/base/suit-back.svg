@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 640" width="420" height="640">
+  <defs>
+    <style>
+      .outline { fill: none; stroke: #555; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+      .detail { fill: none; stroke: #999; stroke-width: 0.8; stroke-linecap: round; }
+      .seam { fill: none; stroke: #bbb; stroke-width: 0.4; stroke-dasharray: 3,4; }
+    </style>
+  </defs>
+
+  <!-- Back body shape -->
+  <path class="outline" d="M160,70 L160,160 L150,200 L140,240 L130,280
+    L135,340 L150,400 L160,440 L160,560 L170,590 L190,610 L210,590 L240,560
+    L240,440 L250,400 L265,340 L270,280 L260,240 L250,200 L240,160 L240,70 Z" />
+
+  <!-- Shoulders -->
+  <path class="outline" d="M160,70 L130,90 L110,140 L100,200 L95,260 L100,300 L105,320" />
+  <path class="outline" d="M240,70 L270,90 L290,140 L300,200 L305,260 L300,300 L295,320" />
+
+  <!-- Sleeves from back -->
+  <path class="outline" d="M100,320 L95,360 L98,400 L100,420 L105,430 L115,430 L120,420 L118,380 L120,340" />
+  <path class="outline" d="M300,320 L305,360 L302,400 L300,420 L295,430 L285,430 L280,420 L282,380 L280,340" />
+
+  <!-- Sleeve cuffs -->
+  <rect class="detail" x="98" y="420" width="17" height="12" rx="1"/>
+  <rect class="detail" x="285" y="420" width="17" height="12" rx="1"/>
+
+  <!-- Center back seam -->
+  <line x1="200" y1="70" x2="200" y2="610" class="seam"/>
+
+  <!-- Back vent -->
+  <path class="outline" d="M185,560 L185,610 M215,560 L215,610" />
+  <path class="detail" d="M185,590 L200,610 L215,590" />
+
+  <!-- Collar back -->
+  <path class="outline" d="M160,70 L168,58 L200,55 L232,58 L240,70" />
+
+  <!-- Back yoke -->
+  <path class="detail" d="M150,110 L200,100 L250,110" />
+  <path class="detail" d="M145,130 L200,120 L255,130" />
+
+  <!-- Darts -->
+  <path class="detail" d="M175,240 L180,340" />
+  <path class="detail" d="M225,240 L220,340" />
+
+  <!-- Buttons on back sleeve -->
+  <circle cx="108" cy="395" r="3" class="detail"/>
+  <circle cx="108" cy="408" r="3" class="detail"/>
+  <circle cx="292" cy="395" r="3" class="detail"/>
+  <circle cx="292" cy="408" r="3" class="detail"/>
+
+  <text x="200" y="625" text-anchor="middle" font-size="12" fill="#bbb" font-family="sans-serif">Back View / 背面</text>
+</svg>

@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="HARCHOY">
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+    <link rel="apple-touch-icon" href="assets/logo.svg">
+    
+    <title>Vertical Supply Chain | From Yulin Cashmere Farm to Garment | HARCHOY</title>
+    <meta name="description" content="HARCHOY's full vertical integration: from our cashmere goat farm in Yulin to premium fabrics and in-house manufacturing, ensuring unmatched quality.">
+    
+    <link rel="canonical" href="https://www.harchoy.com/supply-chain.html">
+    <meta property="og:title" content="Farm-to-Garment: Inside HARCHOY's Vertical Supply Chain">
+    <meta property="og:description" content="From our cashmere goat farm in Yulin to premium fabrics and in-house manufacturing — see how vertical integration delivers unmatched quality.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.harchoy.com/supply-chain.html">
+    <meta property="og:image" content="https://www.harchoy.com/assets/farm/harchoy-cashmere-farm-main.jpg">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <style>
+        .page-hero { background: linear-gradient(135deg, #0a1118 0%, #1a2a1a 50%, #0a1118 100%); color: #fff; padding: 100px 0 80px; text-align: center; position: relative; overflow: hidden; }
+        .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 50% 50%, rgba(200,164,92,0.08), transparent 70%); }
+        .page-hero h1 { color: #fff; font-size: clamp(2rem,4vw,3rem); position: relative; max-width: 900px; margin: 0 auto; }
+        .page-hero .tagline { color: var(--color-gold); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; position: relative; font-weight: 600; }
+        .page-hero .hero-desc { color: #a0aec0; max-width: 700px; margin: 24px auto 0; position: relative; font-size: 1.05rem; line-height: 1.8; }
+
+        .chain-section { padding: 80px 0; }
+        .chain-section.alt { background: #f8f9fa; }
+        .chain-section .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+        .chain-section h2 { font-size: 2rem; color: var(--color-navy); margin-bottom: 16px; }
+        .chain-section .section-sub { color: var(--color-gold); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; margin-bottom: 8px; }
+        
+        .chain-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+        .chain-grid.reverse { direction: rtl; }
+        .chain-grid.reverse > * { direction: ltr; }
+        .chain-grid .text h3 { font-size: 1.4rem; margin-bottom: 16px; color: var(--color-navy); }
+        .chain-grid .text p { color: #4a5568; line-height: 1.9; margin-bottom: 12px; font-size: 1.02rem; }
+        .chain-grid .text .stat-row { display: flex; gap: 32px; margin-top: 24px; }
+        .chain-grid .text .stat { text-align: center; }
+        .chain-grid .text .stat .num { font-size: 2rem; font-weight: 700; color: var(--color-navy); display: block; }
+        .chain-grid .text .stat .lbl { font-size: 0.75rem; color: #718096; text-transform: uppercase; letter-spacing: 0.5px; }
+        .chain-grid .image { overflow: hidden; border-radius: 8px; box-shadow: 0 8px 30px rgba(0,0,0,0.12); }
+        .chain-grid .image img { width: 100%; height: auto; display: block; max-height: 500px; object-fit: cover; }
+
+        .farm-gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 40px; }
+        .farm-gallery img { width: 100%; height: 180px; object-fit: cover; border-radius: 4px; cursor: pointer; transition: transform 0.3s; }
+        .farm-gallery img:hover { transform: scale(1.05); }
+        
+        .integration-timeline { position: relative; padding: 40px 0; }
+        .integration-timeline::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: var(--color-gold); opacity: 0.3; transform: translateX(-50%); }
+        .timeline-item { display: flex; align-items: center; margin-bottom: 48px; position: relative; }
+        .timeline-item:nth-child(odd) { flex-direction: row; }
+        .timeline-item:nth-child(even) { flex-direction: row-reverse; }
+        .timeline-dot { width: 16px; height: 16px; background: var(--color-gold); border-radius: 50%; position: absolute; left: 50%; top: 24px; transform: translateX(-50%); z-index: 1; border: 3px solid #fff; box-shadow: 0 0 0 2px var(--color-gold); }
+        .timeline-content { width: 45%; padding: 24px 32px; background: #fff; border-radius: 8px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+        .timeline-content h4 { color: var(--color-navy); margin-bottom: 8px; font-size: 1.1rem; }
+        .timeline-content p { color: #4a5568; font-size: 0.95rem; line-height: 1.8; }
+        .timeline-spacer { width: 45%; }
+
+        .cta-section { background: var(--color-navy); color: #fff; padding: 80px 24px; text-align: center; }
+        .cta-section h2 { color: var(--color-gold); font-size: 2rem; margin-bottom: 16px; }
+        .cta-section p { color: #a0aec0; max-width: 600px; margin: 0 auto 32px; line-height: 1.8; }
+        .cta-section .btn { display: inline-block; background: var(--color-gold); color: #0f1923; padding: 14px 36px; font-weight: 700; font-size: 1rem; text-decoration: none; border-radius: 4px; transition: all 0.3s; }
+        .cta-section .btn:hover { background: #d4b366; }
+
+        @media (max-width: 768px) {
+            .chain-grid { grid-template-columns: 1fr; gap: 24px; }
+            .chain-grid.reverse { direction: ltr; }
+            .farm-gallery { grid-template-columns: repeat(2, 1fr); }
+            .timeline-item, .timeline-item:nth-child(even) { flex-direction: column; }
+            .timeline-dot { left: 20px; }
+            .timeline-content { width: 100%; margin-left: 40px; }
+            .timeline-spacer { display: none; }
+            .integration-timeline::before { left: 28px; }
+        }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7RZ3KXZPDC"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-7RZ3KXZPDC');
+    </script>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar__content">
+                <span class="top-bar__badge">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    Alibaba International #1 Menswear Store — 5-Star Supplier
+                </span>
+                <span class="top-bar__ddp">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    DDP to EU &amp; US · 3-Day Production · Agent for Premium EU &amp; US Fabric Mills
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="/" class="nav__logo">
+                    <span class="nav__logo-text">HARCHOY</span>
+                    <span class="nav__logo-sub">PREMIUM CRAFT &amp; TAILORING</span>
+                </a>
+                <ul class="nav__menu" id="navMenu">
+                    <li><a href="/" class="nav__link">Home</a></li>
+                    <li class="nav__dropdown">
+                        <a href="/solutions.html" class="nav__link">Solutions <span class="nav__arrow">&#9662;</span></a>
+                        <ul class="nav__submenu">
+                            <li><a href="/solutions/bespoke-partner.html">For Tailoring Studios</a></li>
+                            <li><a href="/solutions/enterprise.html">For Corporations</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/products.html" class="nav__link">Products</a></li>
+                    <li><a href="/product-videos.html" class="nav__link">Videos</a></li>
+                    <li><a href="/fabrics.html" class="nav__link">Fabrics</a></li>
+                    <li><a href="/process.html" class="nav__link">Process</a></li>
+                    <li><a href="/supply-chain.html" class="nav__link active">Supply Chain</a></li>
+                    <li><a href="blog/" class="nav__link">Blog</a></li>
+                    <li><a href="/order/" class="nav__link nav__link--order">Order / 下单</a></li>
+                    <li><a href="/about.html" class="nav__link">About</a></li>
+                    <li><a href="/contact.html" class="nav__link nav__link--cta">Inquire Now</a></li>
+                </ul>
+                <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container" style="position:relative; z-index:1;">
+                <div class="tagline">Farm · Mill · Factory · Garment</div>
+                <h1>Complete Vertical Integration<br>From Cashmere Goat to Bespoke Suit</h1>
+                <p class="hero-desc">Most suit manufacturers start at the cutting table. We start at the pasture. Our cashmere goat farm in Yulin, Shaanxi — combined with in-house fabric sourcing, pattern development, and manufacturing — gives us end-to-end control over quality that no middleman-dependent factory can match.</p>
+            </div>
+        </section>
+
+        <!-- Step 1: The Farm -->
+        <section class="chain-section">
+            <div class="container">
+                <div class="chain-grid">
+                    <div class="image">
+                        <img src="assets/farm/cashmere-farm-landscape.jpg" alt="HARCHOY Cashmere Goat Farm" loading="lazy">
+                    </div>
+                    <div class="text">
+                        <div class="section-sub">Step 1 · Raw Material</div>
+                        <h2>The Yulin Cashmere Farm</h2>
+                        <p>In the transition zone between the Mu Us Desert and the Loess Plateau — Yulin, Shaanxi Province — our cashmere goats graze at 1,200 meters above sea level. The arid, cold climate and mineral-rich pasture create the ideal conditions for producing some of the finest cashmere fiber in the world.</p>
+                        <p>We raise the <strong>Shaanxi Northern White Cashmere Goat</strong>, a breed refined over 25 years of selective breeding. Their undercoat produces fiber with a diameter of just <strong>14.5 microns or less</strong> — putting our raw cashmere in the "ultra-fine" category, comparable to the most exclusive cashmere on the global market.</p>
+                        <div class="stat-row">
+                            <div class="stat"><span class="num">14.5μm</span><span class="lbl">Fiber Fineness</span></div>
+                            <div class="stat"><span class="num">60%+</span><span class="lbl">Net Cashmere Rate</span></div>
+                            <div class="stat"><span class="num">1,200m</span><span class="lbl">Altitude</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 2: The Goat Details -->
+        <section class="chain-section alt">
+            <div class="container">
+                <div class="chain-grid reverse">
+                    <div class="image">
+                        <img src="assets/farm/shaanxi-white-cashmere-goats.jpg" alt="Shaanxi Northern White Cashmere Goats at HARCHOY farm" width="1200" height="675" loading="lazy">
+                    </div>
+                    <div class="text">
+                        <div class="section-sub">The Breed</div>
+                        <h2>Shaanxi Northern White Cashmere Goat</h2>
+                        <p>This breed is the result of decades of genetic improvement — crossing Liaoning cashmere goats with local Shaanxi black goats to create an animal that thrives in the harsh northern climate while producing exceptional fiber.</p>
+                        <p><strong>Why this matters for your garments:</strong></p>
+                        <p>Cashmere from goats raised in colder, drier climates produces a denser, finer undercoat. The Yulin region's winter temperatures regularly drop below -20 C, triggering the goats to develop an exceptionally warm, fine undercoat. When harvested each spring, this fiber is longer, softer, and more resilient than cashmere from milder regions.</p>
+                        <p>The breed is also known for its <strong>disease resistance</strong> and <strong>low-stress temperament</strong> — factors that directly affect fiber quality. Stressed animals produce coarser, more brittle hair.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications -->
+        <section class="chain-section">
+            <div class="container" style="max-width:900px;">
+                <div class="section-sub" style="text-align:center;">Verified Quality</div>
+                <h2 style="text-align:center; margin-bottom:8px;">Certifications &amp; Compliance</h2>
+                <p style="text-align:center; color:#718096; max-width:600px; margin:0 auto 48px;">Every batch of our cashmere is independently tested and certified. Your clients can wear our garments with confidence — and with documentation to prove it.</p>
+                
+                <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:24px;">
+                    <div style="background:#fff; border:1px solid #e2e8f0; border-radius:8px; padding:32px 24px; text-align:center; transition:box-shadow 0.3s;">
+                        <div style="width:64px; height:64px; margin:0 auto 16px; background:var(--color-navy); border-radius:50%; display:flex; align-items:center; justify-content:center;">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold)" stroke-width="1.5"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+                        </div>
+                        <h4 style="font-size:1rem; color:var(--color-navy); margin-bottom:8px;">Fiber Lab Test Report</h4>
+                        <p style="font-size:0.82rem; color:#718096; line-height:1.7;">Independent lab analysis by <strong>SGS / Intertek / CTI</strong>. Each batch tested for fiber diameter, coarse hair content, and chemical safety compliance (REACH). Certified results for micron count, purity ratio, and colorfastness.</p>
+                        <div style="margin-top:12px; padding:6px 12px; background:#f0fdf4; display:inline-block; border-radius:20px; font-size:0.7rem; font-weight:600; color:#166534;">✓ REACH Compliant</div>
+                    </div>
+                    
+                    <div style="background:#fff; border:1px solid #e2e8f0; border-radius:8px; padding:32px 24px; text-align:center;">
+                        <div style="width:64px; height:64px; margin:0 auto 16px; background:var(--color-navy); border-radius:50%; display:flex; align-items:center; justify-content:center;">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold)" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                        </div>
+                        <h4 style="font-size:1rem; color:var(--color-navy); margin-bottom:8px;">Sustainable Cashmere Certification</h4>
+                        <p style="font-size:0.82rem; color:#718096; line-height:1.7;">Farmed to <strong>GCS / SFA / RWS</strong> standards. Good Cashmere Standard, Sustainable Fibre Alliance, or Responsible Wool Standard — certified animal welfare, land management, and supply chain traceability from pasture to processing.</p>
+                        <div style="margin-top:12px; padding:6px 12px; background:#f0fdf4; display:inline-block; border-radius:20px; font-size:0.7rem; font-weight:600; color:#166534;">✓ Ethically Farmed</div>
+                    </div>
+                    
+                    <div style="background:#fff; border:1px solid #e2e8f0; border-radius:8px; padding:32px 24px; text-align:center;">
+                        <div style="width:64px; height:64px; margin:0 auto 16px; background:var(--color-navy); border-radius:50%; display:flex; align-items:center; justify-content:center;">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold)" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <h4 style="font-size:1rem; color:var(--color-navy); margin-bottom:8px;">OEKO-TEX Standard 100</h4>
+                        <p style="font-size:0.82rem; color:#718096; line-height:1.7;">World's leading textile safety certification. Every component — threads, buttons, linings, interlinings — tested for harmful substances. Class I certified (safe for infants), the strictest OEKO-TEX category. Your garments are skin-safe and legally compliant.</p>
+                        <div style="margin-top:12px; padding:6px 12px; background:#f0fdf4; display:inline-block; border-radius:20px; font-size:0.7rem; font-weight:600; color:#166534;">✓ Class I Certified</div>
+                    </div>
+                </div>
+                
+                <p style="text-align:center; color:#a0aec0; font-size:0.8rem; margin-top:32px;">Documentation provided with every order. Lab reports available upon request.</p>
+            </div>
+        </section>
+
+        <!-- Photo Gallery -->
+        <section class="chain-section">
+            <div class="container">
+                <div class="section-sub" style="text-align:center;">The Farm in Pictures</div>
+                <h2 style="text-align:center; margin-bottom:8px;">Life at Our Yulin Base</h2>
+                <p style="text-align:center; color:#718096; max-width:600px; margin:0 auto 32px;">Over 1,200 acres of grazing land in the heart of China's premium cashmere region. Every goat is individually tracked for fiber quality and health.</p>
+                <div class="farm-gallery">
+                    <img src="assets/farm/cashmere-goats-grazing.jpg" width="1200" height="800" alt="Cashmere goats grazing" loading="lazy">
+                    <img src="assets/farm/cashmere-farm-overview.jpg" width="1200" height="1800" alt="Farm overview Yulin" loading="lazy">
+                    <img src="assets/farm/cashmere-herd-closeup.jpg" width="1200" height="675" alt="Goat herd close-up" loading="lazy">
+                    <img src="assets/farm/cashmere-farm-landscape.jpg" width="1200" height="674" alt="Farm landscape Shaanxi" loading="lazy">
+                    <img src="assets/farm/white-cashmere-goats-detail.jpg" width="1200" height="800" alt="White cashmere goats" loading="lazy">
+                    <img src="assets/farm/cashmere-farm-facility.jpg" width="1200" height="799" alt="Goat farming facility" loading="lazy">
+                    <img src="assets/farm/cashmere-farm-building.jpg" width="1200" height="674" alt="Farm building" loading="lazy">
+                    <img src="assets/farm/cashmere-goat-portrait.jpg" width="1200" height="674" alt="Cashmere goat detail" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!-- The Full Chain -->
+        <section class="chain-section alt">
+            <div class="container" style="text-align:center; margin-bottom:48px;">
+                <div class="section-sub">End-to-End Integration</div>
+                <h2>From Pasture to Finished Garment</h2>
+                <p style="color:#718096; max-width:650px; margin:16px auto;">Six stages. One company. Zero middlemen.</p>
+            </div>
+            <div class="container">
+                <div class="integration-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>1. Raw Material — Our Farm</h4>
+                            <p>Cashmere goats raised on our Yulin farm. Annual spring harvest of premium ultra-fine fiber (14.5μm). Direct quality control at the source.</p>
+                        </div>
+                        <div class="timeline-spacer"></div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-spacer"></div>
+                        <div class="timeline-content">
+                            <h4>2. Fiber Processing — Partner Mills</h4>
+                            <p>Raw cashmere is washed, de-haired, and spun into yarn at specialized mills in the Shaanxi-Ningxia textile corridor, under our quality supervision.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>3. Authorized Fabric Agency — 200+ Premium Mills</h4>
+                            <p>As an authorized agent for European and American luxury fabric mills, we offer direct access to Loro Piana, NISHIOKA Orimono, Holland &amp; Sherry, Drago, Milano Hemp, Egyptian cotton, and 200+ other mills — at agent pricing, with no trader markups.</p>
+                        </div>
+                        <div class="timeline-spacer"></div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-spacer"></div>
+                        <div class="timeline-content">
+                            <h4>4. Pattern & Design — In-House Studio</h4>
+                            <p>72-hour design proposals. Digital pattern development with multi-size grading. Your sketch becomes a technical production file ready for the cutting table.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>5. Manufacturing — Our Factory</h4>
+                            <p>3-day sampling, 15-20 day bulk production. 10-point quality inspection at every stage. Self-owned factory means no outsourcing delays or quality drift.</p>
+                        </div>
+                        <div class="timeline-spacer"></div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-spacer"></div>
+                        <div class="timeline-content">
+                            <h4>6. Global DDP Delivery — To Your Door</h4>
+                            <p>Customs clearance, duties, freight, and last-mile delivery — all handled by us. Fixed price, zero surprises. 7-10 days to Europe, 10-14 days to North America.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why It Matters -->
+        <section class="chain-section">
+            <div class="container" style="max-width:800px;">
+                <div class="section-sub">Competitive Advantage</div>
+                <h2>Why Vertical Integration Matters to Your Business</h2>
+                <p style="color:#4a5568; line-height:1.9; margin-bottom:24px;">When a factory relies on third-party fabric traders, middlemen, and outsourced workshops, quality becomes a negotiation — not a guarantee. Every handoff introduces risk: inconsistent materials, communication gaps, delayed timelines.</p>
+                <p style="color:#4a5568; line-height:1.9; margin-bottom:24px;">Vertical integration eliminates those handoffs. When we control the raw material (our farm), the fabric sourcing (our relationships), and the manufacturing (our factory), there is no one to blame and nowhere to hide. The result is measurable:</p>
+                <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:24px; margin:32px 0;">
+                    <div style="text-align:center; padding:24px; background:#f8f9fa; border-radius:8px;">
+                        <div style="font-size:2rem; font-weight:700; color:var(--color-navy);">0</div>
+                        <div style="color:#718096; font-size:0.85rem;">Middlemen in Your Supply Chain</div>
+                    </div>
+                    <div style="text-align:center; padding:24px; background:#f8f9fa; border-radius:8px;">
+                        <div style="font-size:2rem; font-weight:700; color:var(--color-navy);">100%</div>
+                        <div style="color:#718096; font-size:0.85rem;">Quality Traceability</div>
+                    </div>
+                    <div style="text-align:center; padding:24px; background:#f8f9fa; border-radius:8px;">
+                        <div style="font-size:2rem; font-weight:700; color:var(--color-navy);">20-30%</div>
+                        <div style="color:#718096; font-size:0.85rem;">Cost Savings vs. Disaggregated Supply</div>
+                    </div>
+                </div>
+                <p style="color:#4a5568; line-height:1.9;">This is the difference between a manufacturer who <em>assembles</em> and one who <em>creates</em>. When your clients ask where their suit came from, you will have an answer that goes all the way back to the pasture.</p>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2>See the Full Chain for Yourself</h2>
+            <p>Want to verify our vertical integration? Schedule a video tour of our farm, fabric library, and factory floor. We will walk you through every link in the chain — live.</p>
+            <a href="/contact.html" class="btn">Request a Virtual Tour</a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <span class="footer__logo">HARCHOY</span>
+                    <p>Premium craft &amp; tailoring since 2010. Your trusted partner for bespoke suit manufacturing and corporate attire solutions — from pasture to garment.</p>
+                    <p class="footer__badge">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        Alibaba International 5-Star Supplier
+                    </p>
+                    <div class="footer__social" style="margin-top: 15px; display: flex; gap: 15px;">
+                        <a href="https://www.instagram.com/harchoy_custom/" class="social-link" title="Follow on Instagram" style="color: #a0aec0; transition: color 0.3s;" onmouseover="this.style.color='#c8a45c'" onmouseout="this.style.color='#a0aec0'"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                        <a href="https://www.linkedin.com/company/harchoy" class="social-link" title="Follow on LinkedIn" style="color: #a0aec0; transition: color 0.3s;" onmouseover="this.style.color='#c8a45c'" onmouseout="this.style.color='#a0aec0'"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+                        <a href="https://www.youtube.com/@harchoy" class="social-link" title="Follow on YouTube" style="color: #a0aec0; transition: color 0.3s;" onmouseover="this.style.color='#c8a45c'" onmouseout="this.style.color='#a0aec0'"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a>
+                    </div>
+                </div>
+                <div class="footer__col">
+                    <h4>Solutions</h4>
+                    <ul>
+                        <li><a href="/solutions/bespoke-partner.html">Bespoke Partner Program</a></li>
+                        <li><a href="/solutions/enterprise.html">Enterprise Attire Solutions</a></li>
+                        <li><a href="/products.html">Product Catalog</a></li>
+                        <li><a href="/fabrics.html">Fabric Library</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About HARCHOY</a></li>
+                        <li><a href="/supply-chain.html">Supply Chain</a></li>
+                        <li><a href="/process.html">Our Process</a></li>
+                        <li><a href="/contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:ivytang@harchoy.com">ivytang@harchoy.com</a></li>
+                        <li>Global DDP Shipping</li>
+                        <li>Response: Within 24h</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2026 HARCHOY. All rights reserved. | OEM · ODM · OBM Bespoke Apparel Manufacturing</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="floating-actions">
+        <a href="https://wa.me/8615108220977" class="floating-btn floating-btn--whatsapp" title="Chat on WhatsApp" aria-label="WhatsApp" target="_blank" rel="noopener">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+        </a>
+        <a href="/contact.html" class="floating-btn floating-btn--contact" title="Inquire Now" aria-label="Contact us">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </a>
+        <button class="floating-btn floating-btn--top" id="backToTop" title="Back to top" aria-label="Back to top">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+        </button>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
