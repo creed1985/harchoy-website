@@ -1957,3 +1957,192 @@ h4 { font-size: 1.2rem; }
     position: relative;
     z-index: 1;
 }
+
+/* ===== HARCHOY 2.0 trust sections (merged) ===== */
+
+PAGE HERO (interior pages)
+   ============================================ */
+.page-hero {
+    position: relative;
+    min-height: 340px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center 30%;
+    background-repeat: no-repeat;
+    padding: 80px 0 60px;
+}
+
+.page-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(10, 25, 49, 0.82) 0%,
+        rgba(10, 25, 49, 0.70) 40%,
+        rgba(15, 25, 35, 0.95) 100%
+    );
+    z-index: 1;
+}
+
+.page-hero__content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 700px;
+}
+
+.page-hero__title {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: #fff;
+    letter-spacing: 0.02em;
+    margin-bottom: 16px;
+}
+
+.page-hero__desc {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.7;
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+    .page-hero {
+        min-height: 260px;
+        padding: 60px 0 40px;
+        background-image: url('/assets/hero/hero-collage-sm.webp') !important;
+    }
+    .page-hero__title {
+        font-size: 1.6rem;
+    }
+    .page-hero__desc {
+        font-size: 0.9rem;
+    }
+}
+
+
+/* ============================================
+   TESTIMONIALS SECTION
+   ============================================ */
+.testimonials {
+    padding: var(--section-padding);
+    background: var(--color-offwhite);
+}
+
+.testimonials__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 28px;
+}
+
+.testimonial-card {
+    background: var(--color-white);
+    border: 1px solid var(--color-gray-200);
+    border-radius: 4px;
+    padding: 36px;
+    transition: all var(--transition-base);
+}
+
+.testimonial-card:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.testimonial-card__stars {
+    display: flex;
+    gap: 4px;
+    color: var(--color-gold);
+    margin-bottom: 20px;
+}
+
+.testimonial-card blockquote {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--color-gray-600);
+    font-style: italic;
+    margin-bottom: 20px;
+    position: relative;
+    padding-left: 16px;
+    border-left: 2px solid var(--color-gold);
+}
+
+.testimonial-card__quote-mark {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    color: var(--color-gold);
+    line-height: 1;
+    opacity: 0.3;
+    margin-bottom: 8px;
+}
+
+.testimonial-card__footer {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--color-gray-200);
+}
+
+.testimonial-card__name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-gray-800);
+}
+
+.testimonial-card__role {
+    font-size: 0.75rem;
+    color: var(--color-gray-400);
+}
+
+.testimonial-card--featured {
+    border: 2px solid var(--color-gold);
+    position: relative;
+}
+
+.testimonial-card--featured:hover {
+    box-shadow: 0 8px 30px rgba(200, 164, 92, 0.15);
+}
+
+.testimonial-card__badge {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--color-gold);
+    background: rgba(200, 164, 92, 0.08);
+    padding: 4px 12px;
+    border-radius: 2px;
+}
+
+
+
+/* ===== CASE STUDY SECTION (merged 2.0) ===== */
+.case-study { padding: 80px 0; border-bottom: 1px solid #e2e8f0; }
+.case-study:nth-child(even) { background: #f7fafc; }
+.case-study__header { text-align: center; max-width: 800px; margin: 0 auto 48px; }
+.case-study__title { font-family: var(--font-display, 'Cormorant Garamond', serif); font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--color-navy, #0a1931); margin-bottom: 12px; }
+.case-study__subtitle { color: #718096; font-size: 1rem; line-height: 1.7; }
+.case-study__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+.case-study__card { background: #fff; border: 1px solid #e2e8f0; border-radius: 4px; padding: 32px 28px; }
+.case-study__card h3 { font-family: var(--font-display, 'Cormorant Garamond', serif); font-size: 1.3rem; color: var(--color-navy, #0a1931); margin-bottom: 16px; }
+.case-study__card p { color: #4a5568; font-size: 0.92rem; line-height: 1.7; margin-bottom: 12px; }
+.case-study__card ul { list-style: none; padding: 0; }
+.case-study__card ul li { color: #4a5568; font-size: 0.9rem; line-height: 1.7; padding-left: 18px; position: relative; margin-bottom: 8px; }
+.case-study__card ul li::before { content: ''; position: absolute; left: 0; top: 8px; width: 6px; height: 6px; background: #c8a45c; border-radius: 50%; }
+.case-study__card--result { background: var(--color-navy, #0a1931); border-color: var(--color-navy, #0a1931); }
+.case-study__card--result h3 { color: #c8a45c; }
+.case-study__card--result p { color: #cbd5e0; }
+.case-study__metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 20px; }
+.case-study__metric { text-align: center; }
+.case-study__metric-value { display: block; font-family: var(--font-display, 'Cormorant Garamond', serif); font-size: 1.6rem; font-weight: 700; color: #c8a45c; line-height: 1.2; }
+.case-study__metric-label { display: block; font-size: 0.7rem; color: #a0aec0; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+
+/* ===== ENHANCED TESTIMONIALS (merged 2.0) ===== */
+.testimonial-card--featured { border: 2px solid #c8a45c; position: relative; }
+.testimonial-card--featured::after { content: 'FEATURED'; position: absolute; top: 12px; right: 12px; background: #c8a45c; color: #fff; font-size: 0.6rem; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 2px; font-weight: 600; }

@@ -134,13 +134,28 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7RZ3KXZPDC"></script>
+    <!-- Google tag (gtag.js) - GA4 + Google Ads -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18283045118"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
+        gtag('config', 'AW-18283045118');
         gtag('config', 'G-7RZ3KXZPDC');
+
+        // 询盘转化追踪：用户点击发送按钮时向谷歌广告上报转化
+        function gtag_report_conversion(url) {
+            var callback = function () {
+                if (typeof(url) != 'undefined') { window.location = url; }
+            };
+            gtag('event', 'conversion', {
+                'send_to': 'AW-16548480772/kPKvCL6vmsgcEISO99I9',
+                'value': 1.0,
+                'currency': 'USD',
+                'event_callback': callback
+            });
+            return false;
+        }
     </script>
 </head>
 
@@ -265,7 +280,7 @@
                             <label for="details">Tell us about your project</label>
                             <textarea id="details" name="details" rows="5" placeholder="Please describe your requirements: target quantity, preferred fabrics, timeline, any special requests..."></textarea>
                         </div>
-                        <button type="submit" class="btn btn--primary btn--full">Send Inquiry</button>
+                        <button type="submit" onclick="return gtag_report_conversion();" class="btn btn--primary btn--full">Send Inquiry</button>
                         <p class="contact__form-note">We typically respond within 24 hours on business days. Your information is kept confidential.</p>
                     </form>
                 </div>

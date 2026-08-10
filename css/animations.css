@@ -1,0 +1,157 @@
+/* ============================================
+   HARCHOY — Subtle Motion Design
+   Zero-dependency, CSS-first, < 2KB
+   ============================================ */
+
+/* ---- Scroll-Triggered Reveal (modern browsers) ---- */
+@supports (animation-timeline: view()) {
+  .reveal,
+  .reveal-fallback {
+    animation: fadeUp 0.8s ease-out both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 25%;
+  }
+  .reveal--fast { animation-duration: 0.5s; }
+  .reveal--slow { animation-duration: 1.2s; }
+  .reveal--left,
+  .reveal-fallback--left { animation-name: fadeLeft; }
+  .reveal--right,
+  .reveal-fallback--right { animation-name: fadeRight; }
+  .reveal--scale,
+  .reveal-fallback--scale { animation-name: scaleIn; }
+}
+
+/* ---- Fallback: Intersection Observer activates .visible ---- */
+.reveal-fallback {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.reveal-fallback.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-fallback--left {
+  transform: translateX(-30px);
+}
+.reveal-fallback--left.visible {
+  transform: translateX(0);
+}
+.reveal-fallback--right {
+  transform: translateX(30px);
+}
+.reveal-fallback--right.visible {
+  transform: translateX(0);
+}
+.reveal-fallback--scale {
+  transform: scale(0.95);
+}
+.reveal-fallback--scale.visible {
+  transform: scale(1);
+}
+
+/* ---- Keyframes ---- */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ---- Hero Text Entrance ---- */
+.hero__content h1 {
+  animation: fadeUp 0.8s 0.1s ease-out both;
+}
+.hero__content p {
+  animation: fadeUp 0.8s 0.3s ease-out both;
+}
+.hero__content .btn {
+  animation: fadeUp 0.8s 0.5s ease-out both;
+}
+
+/* ---- Subtle Hover States ---- */
+.btn,
+.nav__cta,
+.floating-btn {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+.btn:hover,
+.nav__cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+.floating-btn:hover {
+  transform: scale(1.08);
+}
+
+/* ---- Card Lift ---- */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+}
+
+/* ---- Nav Link Underline Animation ---- */
+.nav__link {
+  position: relative;
+}
+.nav__link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 16px;
+  right: 16px;
+  height: 1.5px;
+  background: var(--color-gold);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+.nav__link:hover::after,
+.nav__link.active::after {
+  transform: scaleX(1);
+}
+
+/* ---- Section Divider Animated Line ---- */
+.section-divider {
+  width: 60px;
+  height: 2px;
+  background: var(--color-gold);
+  margin: 16px auto 32px;
+  animation: expandLine 0.8s ease-out both;
+}
+@keyframes expandLine {
+  from { width: 0; opacity: 0; }
+  to   { width: 60px; opacity: 1; }
+}
+
+/* ---- Image Zoom on Hover (product/gallery cards) ---- */
+.img-zoom {
+  overflow: hidden;
+}
+.img-zoom img {
+  transition: transform 0.5s ease;
+}
+.img-zoom:hover img {
+  transform: scale(1.04);
+}
+
+/* ---- Reduced motion preference ---- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
